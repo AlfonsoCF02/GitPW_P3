@@ -148,6 +148,30 @@ public class UserDAO {
 		}
 		
 	}
+	
+	public UsuarioDTO obtenerUser(String email) throws SQLException {
+		UsuarioDTO u=null;
+		connection dbConnection = new connection();
+		QuerysProperties a=new QuerysProperties();
+		Connection connection = dbConnection.getConnection();
+		int flag=0;
+		String mail="'"+email+"'";
+		String query = a.getSelectUserByEmail() + mail; 
+		Statement stmt = connection.createStatement();
+		ResultSet rs = (ResultSet) stmt.executeQuery(query);
+		if(rs.next()==true) {
+			flag=1;
+			String email1=rs.getString(1);
+			String nom
+			String ap=
+			String
+		}
+
+		if (stmt != null){ 
+			stmt.close(); 
+		}
+		dbConnection.closeConnection();
+	}
 
 	/**
 	 * A method that removes an user

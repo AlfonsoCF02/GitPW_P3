@@ -39,6 +39,9 @@ public class UsuarioDTO {
 	 */
 	private String email;
 	
+	private String passw;
+	
+	private String tipo;
 	/**
 	 * Empty (default) constructor
 	 * */
@@ -61,6 +64,22 @@ public class UsuarioDTO {
 		this.email = email;
 	}
 
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo=tipo;
+	}
+	public String getPass() {
+		return passw;
+	}
+
+	public void setPass(String pass) {
+		this.passw = pass;
+	}
+	
 	public String getName() {
 		return name;
 	}
