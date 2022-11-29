@@ -42,11 +42,11 @@ public class GestorUsuario {
 	 * */
 	//Manager receives a user and passes the partitioned info to the DAO
 	
-	public Integer altaUsuario(String nom,String surname,String email,Date birth,Date firstB) throws SQLException, ParseException {
+	public Integer altaUsuario(String nom,String surname,String email,Date birth,Date firstB,typeof tipo,String pass) throws SQLException, ParseException {
 		UserDAO u=new UserDAO();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 	    java.sql.Date date1 = new java.sql.Date(birth.getTime());
-		UsuarioDTO x=new UsuarioDTO(nom,surname,date1,email);
+		UsuarioDTO x=new UsuarioDTO(nom,surname,date1,email,pass,tipo);
 	    java.sql.Date date2 = new java.sql.Date(firstB.getTime());
 		x.setFirstBooking(date2);
 		Integer value=u.altaUsuario(x);	
@@ -66,11 +66,11 @@ public class GestorUsuario {
 	 * @throws ParseException 
 	 * */
 
-	public Integer bajaUsuario(String nom,String surname,String email,Date birth,Date firstB) throws SQLException, ParseException {
+	public Integer bajaUsuario(String nom,String surname,String email,Date birth,Date firstB,typeof tipo,String pass) throws SQLException, ParseException {
 		UserDAO u=new UserDAO();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 	    java.sql.Date date1 = new java.sql.Date(birth.getTime());
-		UsuarioDTO x=new UsuarioDTO(nom,surname,date1,email);
+		UsuarioDTO x=new UsuarioDTO(nom,surname,date1,email,pass,tipo);
 	    java.sql.Date date2 = new java.sql.Date(firstB.getTime());
 		x.setFirstBooking(date2);
 		Integer value=u.eliminarUsuario(x);	
@@ -94,11 +94,11 @@ public class GestorUsuario {
 	 * @throws ParseException 
 	 * */
 	
-	public Integer modificarUsuario(String nom,String surname,String email,Date birth,Date firstB) throws SQLException, ParseException {
+	public Integer modificarUsuario(String nom,String surname,String email,Date birth,Date firstB,typeof tipo,String pass) throws SQLException, ParseException {
 		UserDAO u=new UserDAO();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 	    java.sql.Date date1 = new java.sql.Date(birth.getTime());
-		UsuarioDTO x=new UsuarioDTO(nom,surname,date1,email);
+		UsuarioDTO x=new UsuarioDTO(nom,surname,date1,email,pass,tipo);
 	    java.sql.Date date2 = new java.sql.Date(firstB.getTime());
 		x.setFirstBooking(date2);
 		Integer value=u.modificarUsuario(x);	

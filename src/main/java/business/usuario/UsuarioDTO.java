@@ -41,7 +41,7 @@ public class UsuarioDTO {
 	
 	private String passw;
 	
-	private String tipo;
+	private typeof tipo;
 	/**
 	 * Empty (default) constructor
 	 * */
@@ -56,20 +56,22 @@ public class UsuarioDTO {
 	 * @param The user date of birth
 	 * @param The user email
 	 * */
-	public UsuarioDTO(String name, String surname, Date birth, String email) {
+	public UsuarioDTO(String name, String surname, Date birth, String email,String password,typeof type) {
 		this.name = name;
 		this.surname = surname;
 		this.birth = birth;
 		this.firstBooking = new Date(); //Actual del sistema
 		this.email = email;
+		this.tipo=type;
+		this.passw=password;
 	}
 
 
-	public String getTipo() {
+	public typeof getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(typeof tipo) {
 		this.tipo=tipo;
 	}
 	public String getPass() {

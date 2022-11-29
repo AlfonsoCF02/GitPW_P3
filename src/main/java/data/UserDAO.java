@@ -13,6 +13,7 @@ import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
 import business.reserva.BonoDTO;
 import business.reserva.ModalidadReservaIndividual;
 import business.usuario.UsuarioDTO;
+import business.usuario.typeof;
 
 
 
@@ -42,7 +43,8 @@ public class UserDAO {
 				ps.setString(3,x.getSurname());
 				ps.setDate(4,(java.sql.Date) x.getBirth());
 				ps.setDate(5,(java.sql.Date) x.getFirstBooking());
-	
+				ps.setString(6,x.getPass());
+				ps.setString(7,x.getTipo().toString());
 				status = ps.executeUpdate();
 				dbConnection.closeConnection();
 				return 0;
@@ -103,7 +105,9 @@ public class UserDAO {
 			ps.setString(2,x.getSurname());
 			ps.setDate(3,(java.sql.Date) x.getBirth());
 			ps.setDate(4,(java.sql.Date) x.getFirstBooking());
-			ps.setString(5,x.getEmail());
+			ps.setString(5,x.getPass());
+			ps.setString(6,x.getTipo().toString());
+			ps.setString(7,x.getEmail());
 
 			status = ps.executeUpdate();
 			dbConnection.closeConnection();
@@ -161,16 +165,24 @@ public class UserDAO {
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		if(rs.next()==true) {
 			flag=1;
-			String email1=rs.getString(1);
-			String nom
-			String ap=
-			String
+			String email1=rs.getString("email");
+			String nom=rs.getString("nombre");
+			String ap=rs.getString("apellidos");
+			Date fechnac=rs.getDate("cumple");
+			Date primres=rs.getDate("primres");
+			String passw=rs.getString("pass");
+			String tipo=rs.getString("tipo");
+			if(tipo.equals(typeof.admin.toString())){
+				u=new UsuarioDTO(nom,ap,fechnac,email1,passw,typeof.admin);
+			}else {
+				u=new UsuarioDTO(nom,ap,fechnac,email1,passw,typeof.user);
+			}
 		}
-
 		if (stmt != null){ 
 			stmt.close(); 
 		}
 		dbConnection.closeConnection();
+		return u;
 	}
 
 	/**
@@ -220,7 +232,10 @@ public class UserDAO {
 			String email = rs.getString("email");
 			java.sql.Date birth = rs.getDate("cumple");
 			java.sql.Date firstB = rs.getDate("primres");
-			info+=("Nombre: "+nombre+" "+"Apellidos: "+apellidos+" "+"Email: "+email+" "+"FechaNacimiento: "+birth+" "+"PrimeraReserva: "+firstB+"\n");
+			String passw=rs.getString("pass");
+			String tipo=rs.getString("tipo");
+			info+=("Nombre: "+nombre+" "+"Apellidos: "+apellidos+" "+"Email: "+email+" "+"FechaNacimiento: "+birth+" "+"PrimeraReserva: "+firstB+" "+
+			"contrasena: "+passw+" "+"rol: "+tipo+"\n");
 		}
 		if (stmt != null){ 
 			stmt.close(); 
@@ -228,5 +243,6 @@ public class UserDAO {
 		dbConnection.closeConnection();
 		return info;
 	}	
+	
 }
 
