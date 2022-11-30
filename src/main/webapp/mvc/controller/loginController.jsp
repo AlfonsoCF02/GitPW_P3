@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import ="business.usuario.UsuarioDTO,data.UserDAO" %>
-<jsp:useBean  id="customerBean" scope="session" class="display.javabean.CustomerBean"></jsp:useBean>
+<jsp:useBean  id="customerBean" scope="session" class="display.javabean.UserBean"></jsp:useBean>
 <%
 /* Posibles flujos:
 	1) customerBean está logado (!= null && != "") -> Se redirige al index.jsp
@@ -13,23 +13,25 @@
 String nextPage = "../../index.jsp";
 String mensajeNextPage = "";
 //Caso 2
-if (customerBean == null || customerBean.getEmailUser().equals("")) {
-	String nameUser = request.getParameter("name");
+if (customerBean == null || customerBean.getLogin().equals("")) {
 	String emailUser = request.getParameter("email");
-
+	String passwordUser = request.getParameter("password");
+	String rolUser = request.getParameter("rol");
 	//Caso 2.a: Hay parámetros -> procede de la VISTA
-	if (nameUser != null) {
+	if (emailUser != null) {
 		//Se accede a bases de datos para obtener el usuario
 		UserDAO userDAO = new UserDAO();
 			//Hacer que te devuelva un dao con el usuario
 			
-		UsuarioDTO user = userDAO.
+		UsuarioDTO user = userDAO.obtenerUser(emailUser);
 		//Se realizan todas las comprobaciones necesarias del dominio
 		//Aquí sólo comprobamos que exista el usuario
 		if (user != null && user.getEmail().equalsIgnoreCase(emailUser)) {
 			// Usuario válido		
 %>
-<jsp:setProperty property="emailUser" value="<%=emailUser%>" name="customerBean"/>
+<jsp:setProperty property="email" value="<%=emailUser%>" name="UserBean"/>
+<jsp:setProperty property="password" value="<%=passwordUser%>" name="UserBean"/>
+<jsp:setProperty property="privilegios" value="<%=rolUser%>" name="UserBean"/>
 <%
 		} else {
 			// Usuario no válido

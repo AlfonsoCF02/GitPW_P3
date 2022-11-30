@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean  id="customerBean" scope="session" class="display.javabean.CustomerBean"></jsp:useBean>
+<jsp:useBean  id="customerBean" scope="session" class="display.javabean.UserBean"></jsp:useBean>
 
 <!DOCTYPE html>
 <html>
@@ -20,17 +20,20 @@ String nextPage = "../controller/loginController.jsp";
 String messageNextPage = request.getParameter("message");
 if (messageNextPage == null) messageNextPage = "";
 
-if (customerBean != null && !customerBean.getEmailUser().equals("")) {
+if (customerBean != null && !customerBean.getLogin().equals("")) {
 	//No debería estar aquí -> flujo salta a index.jsp
 	nextPage = "../../index.jsp";
 } else {
 %>
 <%= messageNextPage %><br/><br/>
 <form method="post" action="../controller/loginController.jsp">
-	<label for="name">Name: </label>
-	<input type="text" name="name" value="JohnDoe"><br/>
 	<label for="email">Email: </label>
-	<input type="text" name="email" value="john.doe@email.com">	
+	<input type="text" name="email" value="JohnDoe@gmail.com"><br/>
+	<label for="password">Password: </label>
+	<input type="text" name="password" value="john1212.2">	
+	<br/>
+	<label for="privilegios">privilegios: </label>
+	<input type="text" name="privilegios" value="user/admin">
 	<br/>
 	<input type="submit" value="Submit">
 </form>
