@@ -20,7 +20,7 @@ String nextPage = "../controller/loginController.jsp";
 String messageNextPage = request.getParameter("message");
 if (messageNextPage == null) messageNextPage = "";
 
-if (customerBean != null && !customerBean.getLogin().equals("")) {
+if (customerBean != null && !customerBean.getEmail().equals("")) {
 	//No debería estar aquí -> flujo salta a index.jsp
 	nextPage = "../../index.jsp";
 } else {

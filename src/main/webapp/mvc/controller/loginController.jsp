@@ -15,10 +15,9 @@
 String nextPage = "../../index.jsp";
 String mensajeNextPage = "";
 //Caso 2
-if (customerBean == null || customerBean.getLogin().equals("")) {
+if (customerBean == null || customerBean.getEmail().equals("")) {
 	String emailUser = request.getParameter("email");
 	String passwordUser = request.getParameter("password");
-	String rolUser = request.getParameter("rol");
 	//Caso 2.a: Hay parámetros -> procede de la VISTA
 	if (emailUser != null) {
 		//Se accede a bases de datos para obtener el usuario
@@ -27,12 +26,15 @@ if (customerBean == null || customerBean.getLogin().equals("")) {
 			//new UsuarioDTO( "name", "String surname", new Date(), "aaa","String password",typeof.user)
 		UsuarioDTO user = new UsuarioDTO();
 		user=userDAO.obtenerUser(emailUser);
+		String priv=user.getTipo().toString();
 		//Se realizan todas las comprobaciones necesarias del dominio
 		//Aquí sólo comprobamos que exista el usuario
-		if (user != null && user.getEmail().equals(emailUser)) {
+		if (user != null && user.getEmail().equals(emailUser) && user.getPass().equals(passwordUser)) {
 			// Usuario válido		
 			%>
-			<jsp:setProperty  name="customerBean" property="*"/>
+			<jsp:setProperty  name="customerBean" property="email" value="<%=emailUser%>"/>
+			<jsp:setProperty  name="customerBean" property="password" value="<%=passwordUser%>"/>
+			<jsp:setProperty  name="customerBean" property="privilegios" value="<%=priv%>"/>
 			<%		
 		} else {
 			// Usuario no válido
