@@ -7,7 +7,7 @@ import business.usuario.typeof;
 public class UserBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private String email = "";
+	private String email= "";
 	private String password="";
 	private typeof privilegios;
 	
