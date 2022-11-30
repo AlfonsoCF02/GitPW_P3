@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="display.javabean.UserBean" %>
 <jsp:useBean  id="customerBean" scope="session" class="display.javabean.UserBean"></jsp:useBean>
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@
 //Este código de reset es únicamente para poder probar múltiples veces el MVC
 if (request.getParameter("reset") != null) {
 %>
-<jsp:setProperty property="email" value="" name="customerBean"/>
+<jsp:setProperty property="emailUsuario" value="" name="customerBean"/>
 <%
 }
 if (customerBean == null || customerBean.getLogin()=="") {
@@ -21,6 +22,7 @@ if (customerBean == null || customerBean.getLogin()=="") {
 %>
 <a href="./mvc/controller/loginController.jsp">Acceder</a>
 <% } else { %>
-<% } %><jsp:getProperty name="customerBean" property="email"/>
+BUENAS <jsp:getProperty name="customerBean" property="emailUsuario"/>
+<% } %>
 </body>
 </html>
