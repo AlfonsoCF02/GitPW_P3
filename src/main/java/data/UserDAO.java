@@ -154,13 +154,13 @@ public class UserDAO {
 	}
 	
 	public UsuarioDTO obtenerUser(String email) throws SQLException {
-		UsuarioDTO u=null;
+		UsuarioDTO u=new UsuarioDTO();
 		connection dbConnection = new connection();
 		QuerysProperties a=new QuerysProperties();
 		Connection connection = dbConnection.getConnection();
 		int flag=0;
 		String mail="'"+email+"'";
-		String query = a.getSelectUserByEmail() + mail; 
+		String query = "select * from usuarios where email = " + mail; 
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		if(rs.next()==true) {

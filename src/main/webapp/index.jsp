@@ -21,7 +21,6 @@ if (customerBean == null || customerBean.getLogin()=="") {
 %>
 <a href="./mvc/controller/loginController.jsp">Acceder</a>
 <% } else { %>
-	¡¡Bienvenido <jsp:getProperty property="email" name="customerBean"/>!! 
-<% } %>
+<% } %><jsp:getProperty name="customerBean" property="email"/>
 </body>
 </html>

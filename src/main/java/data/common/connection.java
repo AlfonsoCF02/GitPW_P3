@@ -43,7 +43,7 @@ public class connection {
 
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			this.connection = (Connection) DriverManager.getConnection(url, user, password);
+			this.connection = (Connection) DriverManager.getConnection("jdbc:mysql://oraclepr.uco.es:3306/i02cabfa","i02cabfa","zapatilla");
 		} 
 		catch (SQLException e) {
 			System.err.println("Connection to MySQL has failed!");
