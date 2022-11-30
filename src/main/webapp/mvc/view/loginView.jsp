@@ -32,9 +32,6 @@ if (customerBean != null && !customerBean.getLogin().equals("")) {
 	<label for="password">Password: </label>
 	<input type="text" name="password" value="john1212.2">	
 	<br/>
-	<label for="privilegios">privilegios: </label>
-	<input type="text" name="privilegios" value="user/admin">
-	<br/>
 	<input type="submit" value="Submit">
 </form>
 <%

@@ -23,6 +23,5 @@ if (customerBean == null || customerBean.getLogin()=="") {
 <% } else { %>
 	¡¡Bienvenido <jsp:getProperty property="email" name="customerBean"/>!! 
 <% } %>
-
 </body>
 </html>

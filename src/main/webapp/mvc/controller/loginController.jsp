@@ -28,11 +28,11 @@ if (customerBean == null || customerBean.getLogin().equals("")) {
 		//Aquí sólo comprobamos que exista el usuario
 		if (user != null && user.getEmail().equalsIgnoreCase(emailUser)) {
 			// Usuario válido		
-%>
-<jsp:setProperty property="email" value="<%=emailUser%>" name="UserBean"/>
-<jsp:setProperty property="password" value="<%=passwordUser%>" name="UserBean"/>
-<jsp:setProperty property="privilegios" value="<%=rolUser%>" name="UserBean"/>
-<%
+			%>
+			<jsp:setProperty property="email" value="<%=emailUser%>" name="UserBean"/>
+			<jsp:setProperty property="password" value="<%=passwordUser%>" name="UserBean"/>
+			<jsp:setProperty property="privilegios" value="<%=rolUser%>" name="UserBean"/>
+			<%		
 		} else {
 			// Usuario no válido
 			nextPage = "../view/loginView.jsp";
