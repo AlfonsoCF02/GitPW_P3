@@ -3,6 +3,7 @@
 <%@ page import ="business.usuario.UsuarioDTO,data.UserDAO" %>
 <%@ page import ="java.util.Date" %>
 <%@ page import ="business.usuario.typeof" %>
+<%@page errorPage="../../errorPage.jsp" %>
 <jsp:useBean  id="customerBean" scope="session" class="display.javabean.UserBean"></jsp:useBean>
 <%
 /* Posibles flujos:
@@ -14,6 +15,7 @@
 //Caso 1: Por defecto, vuelve al index
 String nextPage = "../../index.jsp";
 String mensajeNextPage = "";
+String mensajeError="";
 //Caso 2
 if (customerBean == null || customerBean.getEmail().equals("")) {
 	String emailUser = request.getParameter("email");
@@ -26,7 +28,7 @@ if (customerBean == null || customerBean.getEmail().equals("")) {
 			//new UsuarioDTO( "name", "String surname", new Date(), "aaa","String password",typeof.user)
 		UsuarioDTO user = new UsuarioDTO();
 		user=userDAO.obtenerUser(emailUser);
-		String priv=user.getTipo().toString();
+		typeof priv=user.getTipo();
 		//Se realizan todas las comprobaciones necesarias del dominio
 		//Aquí sólo comprobamos que exista el usuario
 		if (user != null && user.getEmail().equals(emailUser) && user.getPass().equals(passwordUser)) {
