@@ -3,7 +3,7 @@
 <%@ page import ="business.usuario.UsuarioDTO,data.UserDAO" %>
 <%@ page import ="java.util.Date" %>
 <%@ page import ="business.usuario.typeof" %>
-<%@page errorPage="../../errorPage.jsp" %>
+<%@page errorPage="../../errorLogin.jsp" %>
 <jsp:useBean  id="customerBean" scope="session" class="display.javabean.UserBean"></jsp:useBean>
 <%
 /* Posibles flujos:

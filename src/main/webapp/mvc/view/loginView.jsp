@@ -28,9 +28,9 @@ if (customerBean != null && !customerBean.getEmail().equals("")) {
 <%= messageNextPage %><br/><br/>
 <form method="post" action="../controller/loginController.jsp">
 	<label for="email">Email: </label>
-	<input type="text" name="email" value="x"><br/>
+	<input type="text" name="email" placeholder="Enter email" required><br/>
 	<label for="password">Password: </label>
-	<input type="text" name="password" value="x">	
+	<input type="password" name="password" placeholder="Enter password" required>	
 	<br/>
 	<input type="submit" value="Submit">
 </form>
