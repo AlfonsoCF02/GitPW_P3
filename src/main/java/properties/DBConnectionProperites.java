@@ -7,6 +7,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+import javax.lang.model.element.Element;
+import javax.swing.text.Document;
+
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 /**
  * A class to manage the MySQL connection properties.
  * @author 
@@ -46,12 +52,17 @@ public class DBConnectionProperites {
 	private void cargar_datos() {
 		
 	Properties prop = new Properties();
-	String filename = new String("./config.properties");
+	String filename = "../WEB_INF/context.xml";
 	
 	try {
 		
 		BufferedReader reader = new BufferedReader(new FileReader(new File(filename)));
 		prop.load(reader);
+		
+		Document doc=dBuilder.parse(contenidoFicheroXML);
+		NodeList nodoUsuario = doc.getElementsByTagName("usuario");
+		Node nNode = nodoUsuario.item(temp);
+		Element eElement = (Element) nNode;
 		
 		BDurl_file = prop.getProperty("BDurl");
 		BDuser_file = prop.getProperty("BDuser");
