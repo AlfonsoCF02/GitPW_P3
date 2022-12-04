@@ -1,7 +1,7 @@
 package display.javabean;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import business.usuario.typeof;
 

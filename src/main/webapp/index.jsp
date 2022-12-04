@@ -23,7 +23,7 @@ if (customerBean == null || customerBean.getEmail()=="") {
 <a href="./mvc/controller/loginController.jsp">Iniciar sesion</a>
 <a href="./mvc/controller/registroController.jsp">Registrarse</a>
 <% } else { %>
-BUENAS <jsp:getProperty name="customerBean" property="email"/><jsp:getProperty name="customerBean" property="privilegios"/>
+BUENAS |<jsp:getProperty name="customerBean" property="email"/>|<jsp:getProperty name="customerBean" property="privilegios"/>
 <% } %>
 </body>
 </html>

@@ -19,24 +19,22 @@ if (customerBean != null && !customerBean.getEmail().equals("")) {
 } else {
 %>
 <%= messageNextPage %><br/><br/>
-<form method="post" action="action=?parametro=registro">
+<form method="post">
 	<label for="email">Email: </label>
 	<input type="text" name="email" placeholder="Enter email" required><br/>
 	<label for="password">Password: </label>
 	<input type="password" name="password" placeholder="Enter password" required><br/>
-	<label for="nombre">Email: </label>
+	<label for="nombre">Nombre: </label>
 	<input type="text" name="nombre" placeholder="Enter name" required><br/>
-	<label for="apellidos">Email: </label>
+	<label for="apellidos">Apellidos: </label>
 	<input type="text" name="apellidos" placeholder="Enter surname" required><br/>
-	<label for="fechN">Email: </label>
+	<label for="fechN">Fecha Nacimiento: </label>
 	<input type="Date" name="fechN" placeholder="Enter bithday" required><br/>
-	<input type="hidden" name="parametro" value="registro"><br/>
 	<input type="hidden" name="privilegios" value="user"><br/>
 	<input type="submit" value="Submit">
 </form>
 <%
 }
 %>
-
 </body>
 </html>

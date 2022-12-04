@@ -3,16 +3,11 @@
 <%@ page import ="business.usuario.UsuarioDTO,data.UserDAO" %>
 <%@ page import ="java.util.Date" %>
 <%@ page import ="business.usuario.typeof" %>
-<%@page errorPage="../../errorLogin.jsp" %>
+<%@ page import ="business.usuario.*" %>
+<%@ page import ="java.text.SimpleDateFormat" %>
 <jsp:useBean  id="customerBean" scope="session" class="display.javabean.UserBean"></jsp:useBean>
 <%
-/* Posibles flujos:
-	1) customerBean está logado (!= null && != "") -> Se redirige al index.jsp
-	2) customerBean no está logado:
-		a) Hay parámetros en el request  -> procede de la vista 
-		b) No hay parámetros en el request -> procede de otra funcionalidad o index.jsp
-	*/
-//Caso 1: Por defecto, vuelve al index
+
 String nextPage = "../../index.jsp";
 String mensajeNextPage = "";
 String mensajeError="";
@@ -22,11 +17,26 @@ if (customerBean == null || customerBean.getEmail().equals("")) {
 	String passwordUser = request.getParameter("password");
 	String nomUser = request.getParameter("nombre");
 	String apellidosUser = request.getParameter("apellidos");
-	Date fechUser = request.getParameter("fechanacimiento");
-	typeof priv=request.getParameter("rol");
+	String fechUser = request.getParameter("fechanacimiento");
+	String privilegios=request.getParameter("privilegios");
+	typeof priv=null;
+	if(privilegios!=null){
+		if(privilegios.equals(typeof.admin.toString())){
+			priv=typeof.admin;
+		}else{
+			priv=typeof.user;
+		}
+	}
+	Date birth = new Date();
+	if(fechUser!=null){
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		birth = format.parse(fechUser);
+		
+	}
 	//Caso 2.a: Hay parámetros -> procede de la VISTA
 	if (emailUser != null) {
-		UserDAO userDAO = new UserDAO();
+		GestorUsuario g=new GestorUsuario();
 			
 			%>
 			<jsp:setProperty  name="customerBean" property="email" value="<%=emailUser%>"/>
@@ -34,10 +44,11 @@ if (customerBean == null || customerBean.getEmail().equals("")) {
 			<jsp:setProperty  name="customerBean" property="privilegios" value="<%=priv%>"/>
 			<jsp:setProperty  name="customerBean" property="nombre" value="<%=nomUser%>"/>
 			<jsp:setProperty  name="customerBean" property="apellidos" value="<%=apellidosUser%>"/>
-			<jsp:setProperty  name="customerBean" property="fechN" value="<%=fechUser%>"/>
+			<jsp:setProperty  name="customerBean" property="fechN" value="<%=birth%>"/>
 			<%		
-		
-			nextPage = "../view/registroView.jsp";
+			Date firstB=new Date();
+			g.altaUsuario(nomUser, apellidosUser, emailUser, birth, firstB, priv, passwordUser);
+			nextPage = "../../index.jsp";
 			mensajeNextPage = "El usuario se ha registrado correctamente";
 		
 	//Caso 2.b -> se debe ir a la vista por primera vez
