@@ -221,7 +221,7 @@ public class QuerysProperties {
 	private void cargar_datos() {
 		
 		Properties prop = new Properties();
-		String filename = new String("./src/Properties_File/sql.properties");
+		String filename = new String("./properties_file/sql.properties");
 		
 		try {
 			
