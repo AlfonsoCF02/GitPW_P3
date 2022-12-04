@@ -20,7 +20,8 @@ if (request.getParameter("reset") != null) {
 if (customerBean == null || customerBean.getEmail()=="") {
 	// Usuario no logado -> Se invoca al controlador de la funcionalidad
 %>
-<a href="./mvc/controller/loginController.jsp">Acceder</a>
+<a href="./mvc/controller/loginController.jsp">Iniciar sesion</a>
+<a href="./mvc/controller/registroController.jsp">Registrarse</a>
 <% } else { %>
 BUENAS <jsp:getProperty name="customerBean" property="email"/><jsp:getProperty name="customerBean" property="privilegios"/>
 <% } %>
