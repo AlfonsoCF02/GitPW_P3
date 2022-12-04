@@ -52,7 +52,11 @@ public class DBConnectionProperites {
 	private void cargar_datos() {
 		
 	Properties prop = new Properties();
+<<<<<<< Updated upstream
 	String filename = "../WEB_INF/context.xml";
+=======
+	String filename = new String("config.properties");
+>>>>>>> Stashed changes
 	
 	try {
 		
