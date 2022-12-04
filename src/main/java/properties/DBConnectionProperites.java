@@ -31,17 +31,17 @@ public class DBConnectionProperites {
 	private String BDuser_file;
 	private String BDpass_file;
 	
-	public String getBDUrl_file() throws ParserConfigurationException, SAXException, IOException {
+	public String getBDUrl_file(){
 		cargar_datos();
 		return BDurl_file;
 	}
 
-	public String getBDUser_file() throws ParserConfigurationException, SAXException, IOException {
+	public String getBDUser_file() {
 		cargar_datos();
 		return BDuser_file;
 	}
 
-	public String getBDPass_file() throws ParserConfigurationException, SAXException, IOException {
+	public String getBDPass_file() {
 		cargar_datos();
 		return BDpass_file;
 	}
@@ -56,37 +56,10 @@ public class DBConnectionProperites {
 	private void cargar_datos()  {
 	
 	Properties prop = new Properties();
-	 File file = new File("context.xml");
-     DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-     DocumentBuilder db = null;
-	try {
-		db = dbf.newDocumentBuilder();
-	} catch (ParserConfigurationException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+	 BDurl_file = "jdbc:mysql://oraclepr.uco.es:3306/i02cabfa";
+     BDuser_file="i02cabfa";
+     BDpass_file= "zapatilla";
 	}
-     Document document = null;
-	try {
-		document = (Document) db.parse(file);
-	} catch (SAXException | IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-     ((org.w3c.dom.Document) document).getDocumentElement().normalize();
-     System.out.println("Root Element :" + ((org.w3c.dom.Document) document).getDocumentElement().getNodeName());
-     NodeList nList = ((org.w3c.dom.Document) document).getElementsByTagName("");
-     for (int temp = 0; temp < nList.getLength(); temp++) {
-         Node nNode = nList.item(temp);
-         System.out.println("\nCurrent Element :" + nNode.getNodeName());
-         if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-             Element eElement = (Element) nNode;
-             BDurl_file = (String) ((DocumentBuilderFactory) eElement).getAttribute("url");
-             BDuser_file= (String) ((DocumentBuilderFactory) eElement).getAttribute("username");
-             BDpass_file= (String) ((DocumentBuilderFactory) eElement).getAttribute("password");
-         }
-     }
-	}
-	
 }
 
 	
