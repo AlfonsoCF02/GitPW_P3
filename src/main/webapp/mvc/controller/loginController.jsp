@@ -4,7 +4,7 @@
 <%@ page import ="java.util.Date" %>
 <%@ page import ="business.usuario.typeof" %>
 <%@page errorPage="../../errorLogin.jsp" %>
-<jsp:useBean  id="customerBean" scope="session" class="display.javabean.UserBean"></jsp:useBean>
+<jsp:useBean  id="customerBean" scope="session" class="display.javabean.CustomerBean"></jsp:useBean>
 <%
 /* Posibles flujos:
 	1) customerBean está logado (!= null && != "") -> Se redirige al index.jsp

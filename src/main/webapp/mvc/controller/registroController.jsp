@@ -5,7 +5,7 @@
 <%@ page import ="business.usuario.typeof" %>
 <%@ page import ="business.usuario.*" %>
 <%@ page import ="java.text.SimpleDateFormat" %>
-<jsp:useBean  id="customerBean" scope="session" class="display.javabean.UserBean"></jsp:useBean>
+<jsp:useBean  id="customerBean" scope="session" class="display.javabean.CustomerBean"></jsp:useBean>
 <%
 
 String nextPage = "../../index.jsp";

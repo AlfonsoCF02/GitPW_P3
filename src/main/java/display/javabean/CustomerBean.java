@@ -5,7 +5,7 @@ import java.util.Date;
 
 import business.usuario.typeof;
 
-public class UserBean implements Serializable{
+public class CustomerBean implements Serializable{
 
 	
 	/**

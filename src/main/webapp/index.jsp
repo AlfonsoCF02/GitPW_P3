@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="display.javabean.UserBean" %>
-<jsp:useBean  id="customerBean" scope="session" class="display.javabean.UserBean"></jsp:useBean>
+<%@ page import="display.javabean.CustomerBean" %>
+<%@ page import="business.usuario.typeof" %>
+<jsp:useBean  id="customerBean" scope="session" class="display.javabean.CustomerBean"></jsp:useBean>
 
 <!DOCTYPE html>
 <html>
@@ -30,7 +31,12 @@
 				<% 
 				} else { %>
 				<li id="nav_sesion" class="nav_li"><jsp:getProperty name="customerBean" property="email"/></li>
-				<%} %>
+				<%	if(customerBean.getPrivilegios().toString().equals(typeof.user.toString())){//user
+					
+					}else{//admin
+					
+					}
+				} %>
 
 			</ul>
 		</nav>
