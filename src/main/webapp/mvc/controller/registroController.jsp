@@ -5,6 +5,8 @@
 <%@ page import ="business.usuario.typeof" %>
 <%@ page import ="business.usuario.*" %>
 <%@ page import ="java.text.SimpleDateFormat" %>
+<%@page errorPage="../../errorRegistro.jsp" %>
+
 <jsp:useBean  id="customerBean" scope="session" class="display.javabean.CustomerBean"></jsp:useBean>
 <%
 
@@ -47,10 +49,14 @@ if (customerBean == null || customerBean.getEmail().equals("")) {
 			<jsp:setProperty  name="customerBean" property="fechN" value="<%=birth%>"/>
 			<%		
 			Date firstB=new Date();
-			g.altaUsuario(nomUser, apellidosUser, emailUser, birth, firstB, priv, passwordUser);
-			nextPage = "../../index.jsp";
-			mensajeNextPage = "El usuario se ha registrado correctamente";
-		
+			if(g.comprobarUsuarioExistente(customerBean.getEmail())==true){
+				nextPage = "../../index.jsp";
+				mensajeNextPage = "El usuario ya se encuentra registrado";	
+			}else{
+				g.altaUsuario(nomUser, apellidosUser, emailUser, birth, firstB, priv, passwordUser);
+				nextPage = "../../index.jsp";
+				mensajeNextPage = "El usuario se ha registrado correctamente";	
+			}
 	//Caso 2.b -> se debe ir a la vista por primera vez
 	} else {
 		nextPage = "../view/registroView.jsp";		

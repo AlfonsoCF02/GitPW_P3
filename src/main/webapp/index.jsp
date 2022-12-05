@@ -32,7 +32,7 @@
 				} else { %>
 				<li id="nav_sesion" class="nav_li"><jsp:getProperty name="customerBean" property="email"/></li>
 				<%	if(customerBean.getPrivilegios().toString().equals(typeof.user.toString())){//user
-					
+						
 					}else{//admin
 					
 					}

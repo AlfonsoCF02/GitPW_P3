@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
+
 import business.pista.PistaDTO;
 import data.UserDAO;
 
@@ -122,4 +124,12 @@ public class GestorUsuario {
 		return info;
 	}
 
+	public Boolean comprobarUsuarioExistente(String email) throws MySQLSyntaxErrorException, SQLException {
+		UserDAO u=new UserDAO();
+		if(u.comprobarUsuarioExistente(email)==false){
+			return false;
+		}else {
+			return true;
+		}
+	}
 }
