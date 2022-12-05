@@ -50,7 +50,7 @@ if (customerBean == null || customerBean.getEmail().equals("")) {
 			<%		
 			Date firstB=new Date();
 			if(g.comprobarUsuarioExistente(customerBean.getEmail())==true){
-				nextPage = "../../index.jsp";
+				nextPage = "../../errorRegistro.jsp";
 				mensajeNextPage = "El usuario ya se encuentra registrado";	
 			}else{
 				g.altaUsuario(nomUser, apellidosUser, emailUser, birth, firstB, priv, passwordUser);
