@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -226,7 +227,10 @@ public class QuerysProperties {
 		//main/java/properties_file/sql.properties con esto me va
 		//Path relativa = Paths.get("sql.properties");
 		//Path absoluta = relativa.toAbsolutePath();
-		String filename = "../properties_file/sql.properties";
+		InputStream is = getClass().getResourceAsStream("/properties_file/sql.properties");
+		String filename = is.toString();
+
+
 		
 		
 		System.out.println();
