@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Properties;
 /**
  * A method that allows to get the connection data from the DataBase
@@ -222,10 +224,11 @@ public class QuerysProperties {
 		
 		Properties prop = new Properties();
 		//main/java/properties_file/sql.properties con esto me va
-		File myFile = new File("main/java/properties_file/sql.properties");
+		Path relativa = Paths.get("sql.properties");
+		Path absoluta = relativa.toAbsolutePath();
 		String filename = null;
 		try {
-			filename = new String(myFile.getAbsolutePath());
+			filename = new String(absoluta.toString());
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
