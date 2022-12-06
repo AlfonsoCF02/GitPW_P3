@@ -12,9 +12,6 @@
 <body>
 
 El usuario ya esta registrado
-<% String nextPage="../../index.jsp";%>
-
-<jsp:forward page="<%=nextPage%>">
-</jsp:forward>
+<a href="../../index.jsp">Indice</a></li>
 </body>
 </html>
