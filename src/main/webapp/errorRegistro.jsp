@@ -14,5 +14,6 @@
 El usuario ya esta registrado
 <br/>
 <jsp:forward page="<%="../../index.jsp"%>">
-</jsp:forward></body>
+</jsp:forward>
+</body>
 </html>
