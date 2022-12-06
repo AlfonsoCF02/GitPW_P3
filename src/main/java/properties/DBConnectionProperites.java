@@ -52,24 +52,19 @@ public class DBConnectionProperites {
 	
 	private void cargar_datos()  {
 	
-		try {
 			
-			File file = new File("../../webapp/WEB-INF/lib/web.xml");
+			/*File file = new File("../../webapp/WEB-INF/lib/web.xml");
 			FileInputStream fileInput = new FileInputStream(file);
 			Properties properties = new Properties();
 			properties.loadFromXML(fileInput);
 			fileInput.close();
+			properties.getProperty("servidor");
+			*/
+			BDurl_file = "jdbc:mysql://oraclepr.uco.es:3306/";
+		    BDuser_file= "i02cabfa";
+		    BDpass_file= "zapatilla";
 			
-			BDurl_file = properties.getProperty("servidor");
-		    BDuser_file= properties.getProperty("usuario");
-		    BDpass_file= properties.getProperty("pass");
 			
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
      
 	}
 
