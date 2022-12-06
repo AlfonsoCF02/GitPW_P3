@@ -10,7 +10,6 @@
 <title>ERROR!!</title>
 </head>
 <body>
-If you are watching this, then it is because an error happened!
 
 El usuario ya esta registrado
 

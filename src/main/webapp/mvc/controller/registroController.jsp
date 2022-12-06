@@ -40,19 +40,19 @@ if (customerBean == null || customerBean.getEmail().equals("")) {
 	if (emailUser != null) {
 		GestorUsuario g=new GestorUsuario();
 			
-			%>
-			<jsp:setProperty  name="customerBean" property="email" value="<%=emailUser%>"/>
-			<jsp:setProperty  name="customerBean" property="password" value="<%=passwordUser%>"/>
-			<jsp:setProperty  name="customerBean" property="privilegios" value="<%=priv%>"/>
-			<jsp:setProperty  name="customerBean" property="nombre" value="<%=nomUser%>"/>
-			<jsp:setProperty  name="customerBean" property="apellidos" value="<%=apellidosUser%>"/>
-			<jsp:setProperty  name="customerBean" property="fechN" value="<%=birth%>"/>
-			<%		
 			Date firstB=new Date();
 			if(g.comprobarUsuarioExistente(customerBean.getEmail())==true){
 				nextPage = "../../errorRegistro.jsp";
-				mensajeNextPage = "El usuario ya se encuentra registrado";	
+				mensajeNextPage = "El usuario esta registrado";	
 			}else{
+				%>
+				<jsp:setProperty  name="customerBean" property="email" value="<%=emailUser%>"/>
+				<jsp:setProperty  name="customerBean" property="password" value="<%=passwordUser%>"/>
+				<jsp:setProperty  name="customerBean" property="privilegios" value="<%=priv%>"/>
+				<jsp:setProperty  name="customerBean" property="nombre" value="<%=nomUser%>"/>
+				<jsp:setProperty  name="customerBean" property="apellidos" value="<%=apellidosUser%>"/>
+				<jsp:setProperty  name="customerBean" property="fechN" value="<%=birth%>"/>
+				<%		
 				g.altaUsuario(nomUser, apellidosUser, emailUser, birth, firstB, priv, passwordUser);
 				nextPage = "../../index.jsp";
 				mensajeNextPage = "El usuario se ha registrado correctamente";	

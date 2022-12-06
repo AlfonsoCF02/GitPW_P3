@@ -10,7 +10,6 @@
 <title>ERROR!!</title>
 </head>
 <body>
-If you are watching this, then it is because an error happened!
 
 Los datos del usuario son incorrectos, vuelva a intentarlo!
 
