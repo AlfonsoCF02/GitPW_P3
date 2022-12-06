@@ -9,7 +9,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Cordoba Karting</title>
-	<link rel="stylesheet" href="css/estilos.css" type="text/css"><link>
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/estilos.css">
 </head>
 <body>
 	<header>
@@ -22,7 +22,7 @@
 				 String str_date2 = str_date1.toString (); // Convertir fecha y hora en forma de cadena
 				%>
                 <%=str_date2 %></li>
-				<li id="nav_nombre"class="nav_li"><a href="index.jsp"><b>CORDOBA KARTING</b></a></li>
+				<li id="nav_nombre"class="nav_li"><a href="<%=request.getContextPath()%>/index.jsp"><b>CORDOBA KARTING</b></a></li>
 				<%
 				if (customerBean == null || customerBean.getEmail()=="") {
 				%>
@@ -31,13 +31,7 @@
 				<% 
 				} else { %>
 				<li id="nav_sesion" class="nav_li"><jsp:getProperty name="customerBean" property="email"/></li>
-				<%	if(customerBean.getPrivilegios().toString().equals(typeof.user.toString())){//user
-						
-					}else{//admin
-					
-					}
-				} %>
-
+				<%} %>
 			</ul>
 		</nav>
 	</header>
