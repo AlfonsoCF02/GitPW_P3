@@ -1,9 +1,10 @@
 package properties;
 
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import javax.naming.Context;
-import javax.naming.InitialContext;
+import java.util.Properties;
 import javax.naming.NamingException;
 import org.xml.sax.SAXException;
 
@@ -51,18 +52,22 @@ public class DBConnectionProperites {
 	
 	private void cargar_datos()  {
 	
-	Context ctx;
-	
 		try {
 			
-			ctx = new InitialContext();
-			Context env = (Context) ctx.lookup("../webapp/WEB-INF/lib/web.xml");
+			File file = new File("../../webapp/WEB-INF/lib/web.xml");
+			FileInputStream fileInput = new FileInputStream(file);
+			Properties properties = new Properties();
+			properties.loadFromXML(fileInput);
+			fileInput.close();
 			
-		    BDurl_file = (String) env.lookup("servidor");
-		    BDuser_file= (String) env.lookup("usuario");
-		    BDpass_file= (String) env.lookup("pass");
-		    
-		} catch (NamingException e) {
+			BDurl_file = properties.getProperty("servidor");
+		    BDuser_file= properties.getProperty("usuario");
+		    BDpass_file= properties.getProperty("pass");
+			
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
      
