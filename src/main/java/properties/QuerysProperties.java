@@ -221,7 +221,15 @@ public class QuerysProperties {
 	private void cargar_datos() {
 		
 		Properties prop = new Properties();
-		String filename = new String("../properties_file/sql.properties");
+		//main/java/properties_file/sql.properties con esto me va
+		File myFile = new File("main/java/properties_file/sql.properties");
+		String filename = null;
+		try {
+			filename = new String(myFile.getAbsolutePath());
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		System.out.println();
 		try {
