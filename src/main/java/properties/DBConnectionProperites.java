@@ -1,23 +1,16 @@
 package properties;
 
-import java.io.File;
+
 import java.io.IOException;
-import java.util.Properties;
-
-import javax.lang.model.element.Element;
-import javax.swing.text.Document;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import org.xml.sax.SAXException;
-;
+
+
 /**
  * A class to manage the MySQL connection properties.
- * @author 
- * @author Victoria Muñoz
+ * @author Alfonso Cabezas
  * */
 
 
@@ -25,6 +18,7 @@ import org.xml.sax.SAXException;
  * A method that allows to get the connection data from the DataBase
  * @author Alfonso Cabezas
  * */
+
 public class DBConnectionProperites {
 
 	private String BDurl_file;
@@ -49,17 +43,31 @@ public class DBConnectionProperites {
 	
 	/**
 	* A method that allows to load the data
+	 * @throws NamingException 
 	 * @throws ParserConfigurationException 
 	 * @throws IOException 
 	 * @throws SAXException 
 	* */
+	
 	private void cargar_datos()  {
 	
-	Properties prop = new Properties();
-	 BDurl_file = "jdbc:mysql://oraclepr.uco.es:3306/i02cabfa";
-     BDuser_file="i02cabfa";
-     BDpass_file= "zapatilla";
+	Context ctx;
+	
+		try {
+			
+			ctx = new InitialContext();
+			Context env = (Context) ctx.lookup("../webapp/WEB-INF/lib/web.xml");
+			
+		    BDurl_file = (String) env.lookup("servidor");
+		    BDuser_file= (String) env.lookup("usuario");
+		    BDpass_file= (String) env.lookup("pass");
+		    
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+     
 	}
+
 }
 
 	
