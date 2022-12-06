@@ -41,7 +41,7 @@ if (customerBean == null || customerBean.getEmail().equals("")) {
 		GestorUsuario g=new GestorUsuario();
 			
 			Date firstB=new Date();
-			if(g.comprobarUsuarioExistente(customerBean.getEmail())==true){
+			if(g.comprobarUsuarioExistente(request.getParameter("email"))==true){
 				nextPage = "../../errorRegistro.jsp";
 				mensajeNextPage = "El usuario esta registrado";	
 			}else{
