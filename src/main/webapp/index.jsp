@@ -31,6 +31,7 @@
 				<% 
 				} else { %>
 				<li id="nav_sesion" class="nav_li"><jsp:getProperty name="customerBean" property="email"/></li>
+				<li id="nav_sesion" class="nav_li">Cerrar Sesion</a></li>
 				<%} %>
 			</ul>
 		</nav>
