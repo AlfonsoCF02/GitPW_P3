@@ -20,7 +20,7 @@
 
    <error-page>
    <exception-type>java.lang.Throwable</exception-type>
-   <location>/errorLogin.jsp</location>
+   <location>/errorDefault.jsp</location>
    </error-page>
 
 
