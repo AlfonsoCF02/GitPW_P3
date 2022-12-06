@@ -224,15 +224,10 @@ public class QuerysProperties {
 		
 		Properties prop = new Properties();
 		//main/java/properties_file/sql.properties con esto me va
-		Path relativa = Paths.get("sql.properties");
-		Path absoluta = relativa.toAbsolutePath();
-		String filename = null;
-		try {
-			filename = new String(absoluta.toString());
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		//Path relativa = Paths.get("sql.properties");
+		//Path absoluta = relativa.toAbsolutePath();
+		String filename = "../..sql.properties";
+		
 		
 		System.out.println();
 		try {
