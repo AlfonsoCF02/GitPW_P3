@@ -12,6 +12,7 @@
 <body>
 
 El usuario ya esta registrado
-<a href="../../index.jsp">Indice</a></li>
-</body>
+<br/>
+<jsp:forward page="<%="../../index.jsp"%>">
+</jsp:forward></body>
 </html>
