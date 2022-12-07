@@ -17,15 +17,14 @@
 String nextPage = "../../index.jsp";
 String mensajeNextPage = "";
 String mensajeError="";
-//Caso 2
-if (customerBean == null || customerBean.getEmail().equals("")) {
+
+
 	String nameUser = request.getParameter("nombre");
 	String apellidosUser = request.getParameter("apellidos");
 	String passwordUser = request.getParameter("password");
 	String fechNUser = request.getParameter("fechN");
 
 	//Caso 2.a: Hay parámetros -> procede de la VISTA
-	if (nameUser != null) {
 		Date birth = new Date();			
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		birth = format.parse(fechNUser);
@@ -41,15 +40,9 @@ if (customerBean == null || customerBean.getEmail().equals("")) {
 			<jsp:setProperty  name="customerBean" property="password" value="<%=passwordUser%>"/>
 			<jsp:setProperty  name="customerBean" property="nombre" value="<%=nameUser%>"/>
 			<jsp:setProperty  name="customerBean" property="apellidos" value="<%=apellidosUser%>"/>
-			<jsp:setProperty  name="customerBean" property="fechN" value="<%=fechNUser%>"/>
+			<jsp:setProperty  name="customerBean" property="fechN" value="<%=birth%>"/>
 			<%		
-			nextPage = "../view/modifyView.jsp";
-			mensajeNextPage = "El usuario que ha indicado no existe o no es v&aacute;lido";
-	//Caso 2.b -> se debe ir a la vista por primera vez
-	} else {
-		nextPage = "../view/loginView.jsp";		
-	}
-}
+			nextPage = "../../index.jsp";	
 %>
 <jsp:forward page="<%=nextPage%>">
 	<jsp:param value="<%=mensajeNextPage%>" name="message"/>

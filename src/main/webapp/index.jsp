@@ -38,7 +38,7 @@
 				} else { %>
 				<li id="nav_sesion" class="nav_li"><jsp:getProperty name="customerBean" property="email"/></li>
 				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/controller/logoutController.jsp">Cerrar Sesion</a></li>
-				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/controller/modifyController.jsp">Cambiar datos</a></li>
+				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/view/modifyView.jsp">Cambiar datos</a></li>
 				<%if(customerBean.getPrivilegios().toString().equals(typeof.user.toString())){//user
 					
 					}else{//admin
