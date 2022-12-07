@@ -10,9 +10,8 @@
 <title>ERROR!!</title>
 </head>
 <body>
-
 El usuario ya esta registrado
 <br/>
-
+<a href="../..//index.jsp">Volver</a>
 </body>
 </html>
