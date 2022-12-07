@@ -218,14 +218,16 @@ public class UserDAO {
 	 * @throws SQLException
 	 */
 	
-	public String listarUsuarios() throws SQLException {
-		String info="";
+	public ArrayList<String> listarUsuarios() throws SQLException {
+		ArrayList<String> users = new ArrayList();
 		connection dbConnection = new connection();
 		QuerysProperties a=new QuerysProperties();
 		Connection connection = dbConnection.getConnection();
 		String query = a.getSelectAllUsers(); 
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
+		ReservaChildDAO rd=new ReservaChildDAO();
+		String info="";
 		while (rs.next()) {
 			String nombre = rs.getString("nombre");
 			String apellidos = rs.getString("apellidos");
@@ -234,14 +236,16 @@ public class UserDAO {
 			java.sql.Date firstB = rs.getDate("primres");
 			String passw=rs.getString("pass");
 			String tipo=rs.getString("tipo");
-			info+=("Nombre: "+nombre+" "+"Apellidos: "+apellidos+" "+"Email: "+email+" "+"FechaNacimiento: "+birth+" "+"PrimeraReserva: "+firstB+" "+
-			"contrasena: "+passw+" "+"rol: "+tipo+"\n");
+			String nres=rd.obtenerNReservas(email);
+			info=("Email: "+email+" "+"PrimeraReserva: "+firstB+" "+"Numero reservas: "+
+			nres+"\n");
+			users.add(info);
 		}
 		if (stmt != null){ 
 			stmt.close(); 
 		}
 		dbConnection.closeConnection();
-		return info;
+		return users;
 	}	
 	
 }

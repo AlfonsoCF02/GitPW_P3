@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="display.javabean.CustomerBean" %>
-<%@ page import="business.usuario.typeof" %>
+<%@ page import="business.usuario.*" %>
+<%@ page import="data.*" %>
+<%@ page import="java.util.ArrayList" %>
+
 <jsp:useBean  id="customerBean" scope="session" class="display.javabean.CustomerBean"></jsp:useBean>
 
 <!DOCTYPE html>
@@ -42,7 +45,6 @@
 				<%if(customerBean.getPrivilegios().toString().equals(typeof.user.toString())){//user
 					
 					}else{//admin
-				
 					}				
 				} %>
 			</ul>
@@ -61,10 +63,20 @@
 	
 		Bienvenido | <jsp:getProperty name="customerBean" property="email"/> | <%=str_date2 %> | Miembro desde <%=fecha2%>
 	<% }
-	else if(customerBean.getPrivilegios().toString().equals(typeof.admin.toString())){%>
-	
-		SOY ADMIN
-	
+	else if(customerBean.getPrivilegios().toString().equals(typeof.admin.toString())){
+		GestorUsuario ug=new GestorUsuario();
+		ArrayList<String> users = new ArrayList();
+		users=ug.listarUsuarios();
+		int i=0;
+		while(i<users.size()){
+			String info=users.get(i);
+		    %>
+			<%=info %><br/><br/>
+			<%
+			i++;
+		}
+	%>
+		SOY ADMIN<br/>
 	<%}%>
 </body>
 </html>

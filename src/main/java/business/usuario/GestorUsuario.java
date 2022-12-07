@@ -117,11 +117,12 @@ public class GestorUsuario {
 	 * A method that shows us all users that are registered in the system
 	 * @throws SQLException 
 	 * */
-	public String listarUsuarios() throws SQLException{
+	public ArrayList<String> listarUsuarios() throws SQLException{
 		String info;
 		UserDAO u=new UserDAO();
-		info=u.listarUsuarios();
-		return info;
+		ArrayList<String> users = new ArrayList();
+		users=u.listarUsuarios();
+		return users;
 	}
 
 	public Boolean comprobarUsuarioExistente(String email) throws MySQLSyntaxErrorException, SQLException {
