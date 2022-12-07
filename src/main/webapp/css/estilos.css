@@ -30,3 +30,21 @@ a:hover{
 	text-align: right;
 	margin-right: 5px;
 }
+
+.nav li ul {
+	display:none;
+	position:absolute;
+}
+
+.nav li:hover > ul {
+	display:block;
+}
+
+.nav li ul li {
+	position:under;
+}
+
+.nav li ul li ul {
+	right:0px;
+	top:0px;
+}
