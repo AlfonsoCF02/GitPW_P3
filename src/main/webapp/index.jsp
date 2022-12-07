@@ -26,8 +26,8 @@
 				<%
 				if (customerBean == null || customerBean.getEmail()=="") {
 				%>
-				<li id="nav_sesion" class="nav_li"><a href="./mvc/controller/loginController.jsp">Iniciar Sesion</a></li>
-				<li id="nav_sesion" class="nav_li"><a href="./mvc/controller/registroController.jsp">Registrarse</a></li>
+				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/controller/loginController.jsp">Iniciar Sesion</a></li>
+				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/controller/registroController.jsp">Registrarse</a></li>
 				<% 
 				} else { %>
 				<li id="nav_sesion" class="nav_li"><jsp:getProperty name="customerBean" property="email"/></li>
