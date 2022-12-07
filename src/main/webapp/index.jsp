@@ -37,8 +37,8 @@
 				<% 
 				} else { %>
 				<li id="nav_sesion" class="nav_li"><%String nombre=customerBean.getNombre().toString();%><%=nombre%></li>
-				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/controller/logoutController.jsp">Cerrar Sesion</a></li>
-				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/view/modifyView.jsp">Cambiar datos</a></li>
+				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/controller/logoutController.jsp">Desconectar</a></li>
+				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/view/modifyView.jsp">Modificar datos</a></li>
 				<%if(customerBean.getPrivilegios().toString().equals(typeof.user.toString())){//user
 					
 					}else{//admin
@@ -48,19 +48,23 @@
 			</ul>
 		</nav>
 	</header>
-<% 
-//Este código de reset es únicamente para poder probar múltiples veces el MVC
-if (request.getParameter("reset") != null) {
-%>
-<jsp:setProperty property="email" value="" name="customerBean"/>
-<%
-}
-if (customerBean == null || customerBean.getEmail()=="") {
-	// Usuario no logado -> Se invoca al controlador de la funcionalidad
-%>
-
-<% } else { %>
-BUENAS |<jsp:getProperty name="customerBean" property="email"/>|<jsp:getProperty name="customerBean" property="privilegios"/>
-<% } %>
+	<% 
+	if (customerBean == null || customerBean.getEmail()=="") {%>
+	
+		Para el acceso a las funcionalidades de nuestro sitio web debe Iniciar Sesión o Registrarse(si es la primera vez que accede al sitio).
+		
+	<%} 
+	else if(customerBean.getPrivilegios().toString().equals(typeof.user.toString())) {
+		java.util.Date fecha = customerBean.getprimres();
+		String fecha1 = formatter.format (currentTime);
+		String fecha2 = fecha1.toString();%>
+	
+		Bienvenido | <jsp:getProperty name="customerBean" property="email"/> | <%=str_date2 %> | Miembro desde <%=fecha2%>
+	<% }
+	else if(customerBean.getPrivilegios().toString().equals(typeof.admin.toString())){%>
+	
+		SOY ADMIN
+	
+	<%}%>
 </body>
 </html>

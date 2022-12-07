@@ -19,6 +19,7 @@ public class CustomerBean implements Serializable{
 	private String nombre="";
 	private String apellidos="";
 	private Date fechN;
+	private Date primres;
 	
 	public String getNombre() {
 		return this.nombre;
@@ -43,6 +44,14 @@ public class CustomerBean implements Serializable{
 	public void setfechN(Date fech) {
 		fechN=fech;
 	}
+	
+	public Date getprimres() {
+		return this.primres;
+	}
+	
+	public void setprimres(Date reserva) {
+		primres=reserva;
+	}	
 	
 	public typeof getPrivilegios() {
 		return privilegios;
