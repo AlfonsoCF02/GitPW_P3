@@ -16,7 +16,6 @@ import business.pista.GestorPistas;
 /**
  * Servlet implementation class kartAltaController
  */
-@WebServlet("/kartAlta")
 public class kartAltaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

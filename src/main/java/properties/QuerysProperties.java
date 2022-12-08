@@ -227,7 +227,7 @@ public class QuerysProperties {
 		//Path relativa = Paths.get("sql.properties");
 		//Path absoluta = relativa.toAbsolutePath();
 		//String filename = "C:\\Users\\abrah\\Desktop\\GitPW_P3\\src\\main\\java\\properties_file\\sql.properties";
-		
+		String filename = "C:\\Users\\Lenovo\\Desktop\\GitPW_P3\\src\\main\\java\\properties_file\\sql.properties";
 		
 		System.out.println();
 		try {
