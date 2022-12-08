@@ -218,8 +218,8 @@ public class UserDAO {
 	 * @throws SQLException
 	 */
 	
-	public ArrayList<ArrayList<String>> listarUsuarios() throws SQLException {
-		ArrayList<ArrayList<String>> users = new ArrayList<ArrayList<String>>();
+	public ArrayList<String> listarUsuarios() throws SQLException {
+		ArrayList<String> users = new ArrayList();
 		connection dbConnection = new connection();
 		QuerysProperties a=new QuerysProperties();
 		Connection connection = dbConnection.getConnection();
@@ -227,7 +227,7 @@ public class UserDAO {
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		ReservaChildDAO rd=new ReservaChildDAO();
-		ArrayList<String> info=new ArrayList<String>();
+		String info="";
 		while (rs.next()) {
 			String nombre = rs.getString("nombre");
 			String apellidos = rs.getString("apellidos");
@@ -237,7 +237,7 @@ public class UserDAO {
 			String passw=rs.getString("pass");
 			String tipo=rs.getString("tipo");
 			String nres=rd.obtenerNReservas(email);
-			info.add("Email: "+email+" "+"PrimeraReserva: "+firstB+" "+"Numero reservas: "+
+			info=("Email: "+email+" "+"PrimeraReserva: "+firstB+" "+"Numero reservas: "+
 			nres+"\n");
 			users.add(info);
 		}
