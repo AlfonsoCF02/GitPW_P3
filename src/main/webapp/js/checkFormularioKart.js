@@ -18,6 +18,7 @@ function Validar(tipo,estado)
       }
      else
       {
+	   alert("Kart introducido correctamente")
        return true;
       }
     }
