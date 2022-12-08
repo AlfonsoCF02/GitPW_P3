@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -60,7 +59,7 @@ public class kartAltaController extends HttpServlet {
 		   int s;
 		try {
 			s = gk.crearKart(null, b, ks);
-			request.getRequestDispatcher("../../webapp/index.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

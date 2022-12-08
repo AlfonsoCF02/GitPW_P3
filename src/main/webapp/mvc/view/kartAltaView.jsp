@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src = "../../js/checkFormularioKart.js"></script>
 <meta charset="UTF-8">
 <title>Log in</title>
 </head>
@@ -18,11 +19,11 @@
 String nextPage = "../../index.jsp";
 String messageNextPage = request.getParameter("message");
 %>
-<form id="formkart" method="post" action="/kartAlta">
+<form id="formkart" method="post" action="${pageContext.request.contextPath}/kartAlta" onSubmit="return Validar('tipo','estado')">
 	<label for="tipo">Tipo: </label>
-	<input type="text" name="tipo" placeholder="Enter type false/true" required><br/>
+	<input type="text" id="tipo" name="tipo" placeholder="Enter type false/true" required><br/>
 	<label for="estado">Estado: </label>
-	<input type="text" name="estado" placeholder="disponible/reservado/mantenimiento" required><br/>	
+	<input type="text" id="estado"name="estado" placeholder="disponible/reservado/mantenimiento" required><br/>	
 	<br/>
 	<input type="submit" value="Submit">
 </form>
