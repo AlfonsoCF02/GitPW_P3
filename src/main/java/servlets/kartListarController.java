@@ -31,8 +31,16 @@ public class kartListarController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+		KartDAO kd=new KartDAO();
+		ArrayList<String> karts = new ArrayList();
+		try {
+			karts=kd.listarKarts();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.setAttribute("listado", karts);
+		request.getRequestDispatcher("/mvc/view/listarKartsView.jsp").forward(request, response);	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -65,13 +65,13 @@
 	<% }
 	else if(customerBean.getPrivilegios().toString().equals(typeof.admin.toString())){
 		GestorUsuario ug=new GestorUsuario();
-		ArrayList<String> users = new ArrayList();
+		ArrayList<ArrayList<String>> users = new ArrayList<ArrayList<String>>();
 		users=ug.listarUsuarios();
 		int i=0;
 		while(i<users.size()){
-			String info=users.get(i);
+			ArrayList<String> info=users.get(i);
 		    %>
-			<%=info %><br/><br/>
+			<%=info.get(i) %><br/><br/>
 			<%
 			i++;
 		}
@@ -79,7 +79,7 @@
 		SOY ADMIN<br/>
 		<br/>
 		<a href="<%=request.getContextPath()%>/mvc/view/kartAltaView.jsp">Alta kart</a>
-		<a href="${pageContext.request.contextPath}/kartListar">Listar karts</a>
+		<a href="<%=request.getContextPath()%>/kartListar">Listar karts</a>
 	<%}%>
 </body>
 </html>
