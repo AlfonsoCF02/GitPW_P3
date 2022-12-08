@@ -77,6 +77,8 @@
 		}
 	%>
 		SOY ADMIN<br/>
+		<br/>
+		<a href="<%=request.getContextPath()%>/mvc/view/kartAltaView.jsp">Alta kart</a>
 	<%}%>
 </body>
 </html>

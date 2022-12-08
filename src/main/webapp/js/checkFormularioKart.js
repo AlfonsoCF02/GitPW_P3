@@ -5,13 +5,13 @@ document.addEventListener("DOMContentLoaded", function() {
 function validarFormulario(evento) {
   evento.preventDefault();
   var tipo = document.getElementById('tipo').value;
-  if(usuario.length == 0) {
-    alert('No has escrito nada en el usuario');
+  if(tipo != 'mantenimiento' && tipo != 'reservado' && tipo != 'disponible') {
+    alert('no es valido el tipo introducido');
     return;
   }
-  var clave = document.getElementById('clave').value;
-  if (clave.length < 6) {
-    alert('La clave no es válida');
+  var estado = document.getElementById('estado').value;
+  if (estado != true && estado != false) {
+    alert('estado no valido');
     return;
   }
   this.submit();
