@@ -159,7 +159,7 @@ public class KartDAO {
 	public ArrayList<String> listarKarts() throws SQLException {
 		
 		String info="";
-		ArrayList<String> karts = new ArrayList();
+		ArrayList<String> karts = new ArrayList<String>();
 		connection dbConnection = new connection();
 		Connection connection = dbConnection.getConnection();
 		QuerysProperties a=new QuerysProperties();

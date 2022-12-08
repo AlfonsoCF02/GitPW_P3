@@ -65,7 +65,7 @@
 	<% }
 	else if(customerBean.getPrivilegios().toString().equals(typeof.admin.toString())){
 		GestorUsuario ug=new GestorUsuario();
-		ArrayList<String> users = new ArrayList();
+		ArrayList<String> users = new ArrayList<String>();
 		users=ug.listarUsuarios();
 		int i=0;
 		while(i<users.size()){

@@ -120,7 +120,7 @@ public class GestorUsuario {
 	public ArrayList<String> listarUsuarios() throws SQLException{
 		String info;
 		UserDAO u=new UserDAO();
-		ArrayList<String> users = new ArrayList();
+		ArrayList<String> users = new ArrayList<String>();
 		users=u.listarUsuarios();
 		return users;
 	}

@@ -32,7 +32,7 @@ public class kartListarController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		KartDAO kd=new KartDAO();
-		ArrayList<String> karts = new ArrayList();
+		ArrayList<String> karts = new ArrayList<String>();
 		try {
 			karts=kd.listarKarts();
 		} catch (SQLException e) {
@@ -48,7 +48,7 @@ public class kartListarController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		KartDAO kd=new KartDAO();
-		ArrayList<String> karts = new ArrayList();
+		ArrayList<String> karts = new ArrayList<String>();
 		try {
 			karts=kd.listarKarts();
 		} catch (SQLException e) {

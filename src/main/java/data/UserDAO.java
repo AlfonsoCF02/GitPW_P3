@@ -219,7 +219,7 @@ public class UserDAO {
 	 */
 	
 	public ArrayList<String> listarUsuarios() throws SQLException {
-		ArrayList<String> users = new ArrayList();
+		ArrayList<String> users = new ArrayList<String>();
 		connection dbConnection = new connection();
 		QuerysProperties a=new QuerysProperties();
 		Connection connection = dbConnection.getConnection();
