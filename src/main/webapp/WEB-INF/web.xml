@@ -30,6 +30,14 @@
     <servlet-name>kartAlta</servlet-name>
     <url-pattern>/kartAlta</url-pattern>
   </servlet-mapping>
+<servlet>
+    <servlet-name>kartListar</servlet-name>
+    <servlet-class>servlets.kartListarController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>kartListar</servlet-name>
+    <url-pattern>/kartListar</url-pattern>
+  </servlet-mapping>
 
 
 </web-app>

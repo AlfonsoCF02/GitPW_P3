@@ -1,5 +1,6 @@
 package data;
 import java.sql.*;
+import java.util.ArrayList;
 
 import business.kart.KartDTO;
 import business.kart.kartstat;
@@ -155,10 +156,10 @@ public class KartDAO {
 	 * @throws SQLException
 	 */
 
-	public String listarKarts() throws SQLException {
+	public ArrayList<String> listarKarts() throws SQLException {
 		
 		String info="";
-		
+		ArrayList<String> karts = new ArrayList();
 		connection dbConnection = new connection();
 		Connection connection = dbConnection.getConnection();
 		QuerysProperties a=new QuerysProperties();
@@ -172,13 +173,14 @@ public class KartDAO {
 			Integer id = rs.getInt("id");
 			Boolean tipo = rs.getBoolean("tipo");
 			String estado = rs.getString("estado");
-			info+=("Id: "+id+" "+"Tipo: "+tipo+" "+"Estado: "+estado+"\n");
+			info=("Id: "+id+" "+"Tipo: "+tipo+" "+"Estado: "+estado+"\n");
+			karts.add(info);
 		}
 		if (stmt != null){ 
 			stmt.close(); 
 		}
 		dbConnection.closeConnection();
-		return info;
+		return karts;
 		
 	}
 	
