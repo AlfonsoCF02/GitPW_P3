@@ -55,10 +55,8 @@ public class DBConnectionProperites {
 				BDurl_file = (String)cntxt.lookup("servidor");
 				BDuser_file = (String)cntxt.lookup("usuario");
 				BDpass_file = (String)cntxt.lookup("password");
-		
 				
 			} catch (Exception e) {
-		
 				e.printStackTrace();
 			}			
      
