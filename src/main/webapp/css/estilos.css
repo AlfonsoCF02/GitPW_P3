@@ -48,3 +48,9 @@ a:hover{
 	right:0px;
 	top:0px;
 }
+
+.table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}

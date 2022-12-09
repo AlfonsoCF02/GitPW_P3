@@ -70,17 +70,26 @@
 		String usermail="";
 		String fech="";
 		String nres="";
-		while(i<users.size()){
-			usermail=users.get(i).getEmail();
-			fech=users.get(i).getprimres().toString();
-			nres=users.get(i).getNres();
-			String info="Email: "+usermail+" "+" fecha inscripcion: "+fech+" "+" Numero reservas: "+nres+"\n";
-		    %>
-			<%=info%><br/><br/>
-			<%
-			i++;
-		}
-	%>
+		%>
+
+
+		<table class="table">
+		  <tr>
+		    <th>Email</th>
+		    <th>Fecha 1º Res</th>
+		    <th>Nº Reservas</th>
+		  </tr>
+		  <%while(i<users.size()){%>
+		  <tr>
+		  	<%usermail=users.get(i).getEmail();%>
+		    <td><%=usermail%></td>
+		  	<%fech=users.get(i).getprimres().toString();%>
+		    <td><%=fech%></td>	
+		  	<%nres=users.get(i).getNres();%>
+		    <td><%=nres%></td>		    	    
+		  </tr>
+		  <%i++;} %>
+		</table>
 		SOY ADMIN<br/>
 		<br/>
 		<a href="<%=request.getContextPath()%>/mvc/view/kartAltaView.jsp">Alta kart</a>

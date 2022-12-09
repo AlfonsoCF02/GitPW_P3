@@ -222,7 +222,6 @@ public class QuerysProperties {
 	* */
 	private void cargar_datos() {
 		
-		
 		try {
 			
 			Properties prop = new Properties();
