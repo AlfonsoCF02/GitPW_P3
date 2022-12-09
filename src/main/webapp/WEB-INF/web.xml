@@ -5,18 +5,26 @@
      <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 
-  <context-param>
-    <param-name>servidor</param-name>
-    <param-value>jdbc:mysql://oraclepr.uco.es:3306/</param-value>
-  </context-param>
-  <context-param>
-    <param-name>usuario</param-name>
-    <param-value>i02cabfa</param-value>
-  </context-param>
-  <context-param>
-    <param-name>pass</param-name>
-    <param-value>zapatilla</param-value>
-  </context-param>
+<env-entry> 
+    <description>URL de la base de datos</description>
+    <env-entry-name>servidor</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>jdbc:mysql://oraclepr.uco.es:3306/</env-entry-value> 
+</env-entry>
+
+<env-entry> 
+    <description>Usuario de la base de datos</description>
+    <env-entry-name>usuario</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>i02cabfa</env-entry-value> 
+</env-entry>
+
+<env-entry> 
+    <description>Password de la base de datos</description>
+    <env-entry-name>password</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>zapatilla</env-entry-value> 
+</env-entry>
 
    <error-page>
    <exception-type>java.lang.Throwable</exception-type>

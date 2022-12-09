@@ -1,12 +1,7 @@
 package properties;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
-import javax.naming.NamingException;
-import org.xml.sax.SAXException;
+import javax.naming.Context;
+import javax.naming.InitialContext;
 
 
 /**
@@ -51,19 +46,29 @@ public class DBConnectionProperites {
 	* */
 	
 	private void cargar_datos()  {
-	
+		
 			
-			/*File file = new File("../../webapp/WEB-INF/lib/web.xml");
-			FileInputStream fileInput = new FileInputStream(file);
-			Properties properties = new Properties();
-			properties.loadFromXML(fileInput);
-			fileInput.close();
-			properties.getProperty("servidor");
-			*/
+			try {
+				
+				Context cntxt= (Context) new InitialContext().lookup("java:comp/env");
+				
+				BDurl_file = (String)cntxt.lookup("servidor");
+				BDuser_file = (String)cntxt.lookup("usuario");
+				BDpass_file = (String)cntxt.lookup("password");
+				
+				
+				System.out.println("\n\\n\\n\\n\\n"+BDurl_file+"\n");
+				
+			} catch (Exception e) {
+		
+				e.printStackTrace();
+			}
+			
+			/*
 			BDurl_file = "jdbc:mysql://oraclepr.uco.es:3306/";
 		    BDuser_file= "i02cabfa";
 		    BDpass_file= "zapatilla";
-			
+			*/
 			
      
 	}
