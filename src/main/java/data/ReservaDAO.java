@@ -113,6 +113,29 @@ public abstract class ReservaDAO {
 		return String.valueOf(nres);
 	}
 	
+	public String obtenerProxReserva(String email) throws SQLException {
+		connection dbConnection = new connection();
+		Connection connection = dbConnection.getConnection();
+		QuerysProperties a=new QuerysProperties();  
+		String mail="'"+email+"'";
+		String query = "select * from reservas where email = "+mail ; 
+		Statement stmt = connection.createStatement();
+		ResultSet rs = (ResultSet) stmt.executeQuery(query);
+		int i=0;
+		String cad="";
+		while (rs.next()) {
+			if(i==0) {
+				cad=rs.getDate("fecha").toString();
+				i++;
+			}			
+		}
+		if (stmt != null){ 
+			stmt.close(); 
+		}
+		dbConnection.closeConnection();
+		return cad;
+	}
+	
 	
 	/**
 	 * A method that allow to check if a booking already exists
