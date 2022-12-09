@@ -35,7 +35,8 @@ public class pistaAltaController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+		request.getRequestDispatcher("mvc/view/pistaAltaView.jsp").forward(request, response);
+
 	}
 
     /**
@@ -71,7 +72,7 @@ public class pistaAltaController extends HttpServlet {
 					request.setAttribute("estadocreacion", "Pista creada correctamente");
 					request.getRequestDispatcher("index.jsp").forward(request, response);
 				}else {
-					request.getRequestDispatcher("errorALtaPista1.jsp").forward(request, response);
+					request.getRequestDispatcher("errorAltaPista1.jsp").forward(request, response);
 
 				}				
 			} catch (SQLException e) {

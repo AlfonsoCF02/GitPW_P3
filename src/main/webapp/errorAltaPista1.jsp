@@ -10,6 +10,7 @@
 <title>ERROR!!</title>
 </head>
 <body>
-La pista ya sse encuentra creada
+La pista ya se encuentra creada
+<a href="./index.jsp">Volver</a>
 </body>
 </html>
