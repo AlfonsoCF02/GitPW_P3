@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src = "../../js/checkFormularioRegistro.js"></script>
 <meta charset="UTF-8">
 <title>Log in</title>
 </head>
@@ -20,17 +19,17 @@ if (customerBean != null && !customerBean.getEmail().equals("")) {
 } else {
 %>
 <%= messageNextPage %><br/><br/>
-<form id="formregistro" method="post" onSubmit="return Validar()">
+<form method="post">
 	<label for="email">Email: </label>
-	<input type="text" id="email" name="email" placeholder="Enter email" required><br/>
+	<input type="text" name="email" placeholder="Enter email" required><br/>
 	<label for="password">Password: </label>
-	<input type="password" id="password" name="password" placeholder="Enter password" required><br/>
+	<input type="password" name="password" placeholder="Enter password" required><br/>
 	<label for="nombre">Nombre: </label>
-	<input type="text" id="nombre" name="nombre" placeholder="Enter name" required><br/>
+	<input type="text" name="nombre" placeholder="Enter name" required><br/>
 	<label for="apellidos">Apellidos: </label>
-	<input type="text" id="apellidos" name="apellidos" placeholder="Enter surname" required><br/>
+	<input type="text" name="apellidos" placeholder="Enter surname" required><br/>
 	<label for="fechN">Fecha Nacimiento: </label>
-	<input type="Date" id="fechanacimiento" name="fechN" placeholder="Enter bithday" required><br/>
+	<input type="Date" name="fechN" placeholder="Enter bithday" required><br/>
 	<input type="hidden" name="privilegios" value="user"><br/>
 	<input type="submit" value="Submit">
 </form>
