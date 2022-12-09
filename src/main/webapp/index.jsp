@@ -99,7 +99,8 @@
 		<br/>
 		<a href="<%=request.getContextPath()%>/mvc/view/kartAltaView.jsp">Alta kart</a><br/>
 		<a href="${pageContext.request.contextPath}/kartListar">Listar karts</a><br/>
-		<a href="${pageContext.request.contextPath}/pistaAlta">Crear pista</a>
+		<a href="${pageContext.request.contextPath}/pistaAlta">Crear pista</a><br/>
+		<a href="${pageContext.request.contextPath}/pistaListar">Listar pistas</a>
 	<%}%>
 </body>
 </html>

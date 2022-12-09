@@ -54,6 +54,14 @@
     <servlet-name>pistaAlta</servlet-name>
     <url-pattern>/pistaAlta</url-pattern>
   </servlet-mapping>
+<servlet>
+    <servlet-name>pistaListar</servlet-name>
+    <servlet-class>servlets.pistaListarController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pistaListar</servlet-name>
+    <url-pattern>/pistaListar</url-pattern>
+  </servlet-mapping>
 
 
 

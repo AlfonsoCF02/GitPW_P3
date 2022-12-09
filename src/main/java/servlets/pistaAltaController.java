@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.el.parser.AstInteger;
+
 import business.kart.kartstat;
 import business.pista.GestorPistas;
 import business.pista.diff;
@@ -48,7 +50,10 @@ public class pistaAltaController extends HttpServlet {
 		String disponible=request.getParameter("disponible");
 		String dificultad=request.getParameter("dificultad");
 		String maxkarts=request.getParameter("maxkarts");
-		
+		if((!disponible.equals("true") && !disponible.equals("false")) || (!dificultad.equals("child") && !dificultad.equals("family") && !dificultad.equals("adult"))) {
+			request.getRequestDispatcher("errorAltaPista2.jsp").forward(request, response);
+			return;
+		}
 		int s=0;
 		diff d;
 		boolean b;
@@ -73,6 +78,7 @@ public class pistaAltaController extends HttpServlet {
 					request.getRequestDispatcher("index.jsp").forward(request, response);
 				}else {
 					request.getRequestDispatcher("errorAltaPista1.jsp").forward(request, response);
+					return;
 
 				}				
 			} catch (SQLException e) {

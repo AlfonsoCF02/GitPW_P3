@@ -111,4 +111,10 @@ public class GestorPistas {
 		return info;
 	}
 	
+	public ArrayList<String> listarPistas() throws SQLException {
+		ArrayList<String> pistas=new ArrayList<String>();
+		PistaDAO u = new PistaDAO();
+		pistas=u.listarPistas();
+		return pistas;
+	}
 }

@@ -2,6 +2,7 @@ package data;
 
 import java.io.FileNotFoundException;
 import java.sql.*;
+import java.util.ArrayList;
 
 import business.kart.KartDTO;
 import business.kart.kartstat;
@@ -198,6 +199,31 @@ public class PistaDAO {
 		dbConnection.closeConnection();
 		
 		return p;
+	}
+	
+	public ArrayList<String>listarPistas() throws SQLException {
+		String info="";
+		connection dbConnection = new connection();
+		QuerysProperties a=new QuerysProperties();
+		ArrayList<String> pistas=new ArrayList<String>();
+		Connection connection = dbConnection.getConnection();
+		String query ="select * from pistas";
+		Statement stmt = connection.createStatement();
+		ResultSet rs = (ResultSet) stmt.executeQuery(query);
+		while (rs.next()) {
+			String nombre = rs.getString("nombre");
+			Boolean disponible = rs.getBoolean("disponible");
+			Integer karts = rs.getInt("maxcarts");
+			String dificultad = rs.getString("dificultad").toString();			
+			info=("Nombre: "+nombre+", "+"Estado: "+disponible+", "+"Karts Maximos: "+karts+", "+"Dificultad: "+dificultad+"\n");
+			pistas.add(info);
+		}
+		if (stmt != null){ 
+			stmt.close(); 
+		}
+		dbConnection.closeConnection();
+		return pistas;
+		
 	}
 }
 
