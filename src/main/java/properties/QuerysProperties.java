@@ -223,6 +223,11 @@ public class QuerysProperties {
 	private void cargar_datos() {
 		
 		Properties prop = new Properties();
+		
+		ClassLoader classLoader = getClass().getClassLoader();
+		File filename = new File(classLoader.getResource("../properties_file/sql.properties").getFile());
+		
+	/*	
 		//main/java/properties_file/sql.properties con esto me va
 		//Path relativa = Paths.get("sql.properties");
 		//Path absoluta = relativa.toAbsolutePath();
@@ -230,9 +235,13 @@ public class QuerysProperties {
 		//String filename = "C:\\Users\\Lenovo\\Desktop\\GitPW_P3\\src\\main\\java\\properties_file\\sql.properties";
 		String filename = "C:\\Users\\alfon\\Documents\\GitHub\\GitPW_P3\\src\\main\\java\\properties_file\\sql.properties";
 		System.out.println();
+	*/	
+		
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader(new File(filename)));
+			BufferedReader reader = new BufferedReader(new FileReader(filename));
+			
+			//BufferedReader reader = new BufferedReader(new FileReader(new File(filename)));
 			prop.load(reader);
 			
 			insertUser = prop.getProperty("insertUser");
@@ -269,7 +278,9 @@ public class QuerysProperties {
 			selectKartPistasSecond=prop.getProperty("selectKartPistasSecond");
 			selectConcretaUno=prop.getProperty("selectConcretaUno");
 			selectConcretaDos=prop.getProperty("selectConcretaDos");
-						
+				
+			System.out.println("HOLA "+selectConcretaDos);
+			
 		} catch (FileNotFoundException e) {
 			
 			e.printStackTrace();
