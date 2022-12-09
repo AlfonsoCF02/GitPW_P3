@@ -13,14 +13,6 @@
 
 Ha ocurrido un error!
 
-<%
-try{
-}
-catch(Exception e){%>
-	out.println(e.getMessage());
-<%}
-%>
-
 
 </body>
 </html>

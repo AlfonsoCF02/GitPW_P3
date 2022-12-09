@@ -22,6 +22,7 @@ import business.reserva.ModalidadReservaBono;
 import business.reserva.ModalidadReservaIndividual;
 import business.usuario.GestorUsuario;
 import business.usuario.UsuarioDTO;
+import business.usuario.typeof;
 
 /**
  * A class that implements the system menu
@@ -102,8 +103,20 @@ public class Main {
 					        LocalDate fechaSys = LocalDate.now();
 					        firstB =  format.parse(fechaSys.toString());
 
+					        System.out.println("Introduzca el password:");
+							String pass = br.readLine();
 					        
-							int status=alta.altaUsuario(name, surname, email, birth,firstB);
+					        System.out.println("Introduzca el tipo (admin, user):");
+							String tipo = br.readLine();
+							
+							while(!(tipo.equals("admin") || tipo.equals("user") )) {
+								System.out.println("Error, debe introducir admin o user:");
+								tipo = br.readLine();
+							}
+					        
+							typeof tipot = typeof.valueOf(tipo);
+							
+							int status=alta.altaUsuario(name, surname, email, birth,firstB,tipot, pass);
 							if(status==0) {
 								System.out.println("El usuario ha sido introducido correctamente\n");
 							}else if(status==-1) {
@@ -133,8 +146,21 @@ public class Main {
 					        LocalDate fechaSys2 = LocalDate.now();
 					        firstB2 =  format3.parse(fechaSys2.toString());
 							
+					        System.out.println("Introduzca el password:");
+							String pass2 = br2.readLine();
 					        
-							int status2=modi.modificarUsuario(name2, surname2, email2, birth2, firstB2);
+					        System.out.println("Introduzca el tipo (admin, user):");
+							String tipo2 = br2.readLine();
+							
+							while(!(tipo2.equals("admin") || tipo2.equals("user") )) {
+								System.out.println("Error, debe introducir admin o user:");
+								tipo2 = br2.readLine();
+							}
+					        
+							typeof tipot2 = typeof.valueOf(tipo2);
+					        
+					        
+							int status2=modi.modificarUsuario(name2, surname2, email2, birth2, firstB2, tipot2, pass2);
 							if(status2==0) {
 								System.out.println("Modificacion realizada con exito\n");
 							}else {
