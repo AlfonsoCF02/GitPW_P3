@@ -46,6 +46,15 @@
     <servlet-name>kartListar</servlet-name>
     <url-pattern>/kartListar</url-pattern>
   </servlet-mapping>
+<servlet>
+    <servlet-name>pistaAlta</servlet-name>
+    <servlet-class>servlets.pistaAltaController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pistaAlta</servlet-name>
+    <url-pattern>/pistaAlta</url-pattern>
+  </servlet-mapping>
+
 
 
 </web-app>
