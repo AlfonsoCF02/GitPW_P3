@@ -55,21 +55,12 @@ public class DBConnectionProperites {
 				BDurl_file = (String)cntxt.lookup("servidor");
 				BDuser_file = (String)cntxt.lookup("usuario");
 				BDpass_file = (String)cntxt.lookup("password");
-				
-				
-				System.out.println("\n\\n\\n\\n\\n"+BDurl_file+"\n");
+		
 				
 			} catch (Exception e) {
 		
 				e.printStackTrace();
-			}
-			
-			/*
-			BDurl_file = "jdbc:mysql://oraclepr.uco.es:3306/";
-		    BDuser_file= "i02cabfa";
-		    BDpass_file= "zapatilla";
-			*/
-			
+			}			
      
 	}
 
