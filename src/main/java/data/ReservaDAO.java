@@ -118,7 +118,9 @@ public abstract class ReservaDAO {
 		Connection connection = dbConnection.getConnection();
 		QuerysProperties a=new QuerysProperties();  
 		String mail="'"+email+"'";
-		String query = "select * from reservas where email = "+mail ; 
+		java.sql.Date date=new java.sql.Date(0);
+		String fech="'"+date.toString()+"'";
+		String query = "select * from reservas where email = "+mail+" and fecha>"+ fech ; 
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		int i=0;

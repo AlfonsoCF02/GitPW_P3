@@ -61,9 +61,12 @@
 		String fecha1 = formatter.format (currentTime);
 		String fecha2 = fecha1.toString();
 		ReservaChildDAO rcd=new ReservaChildDAO();
-		String fechproxres=rcd.obtenerProxReserva(customerBean.getEmail());%>
+		String fechproxres=rcd.obtenerProxReserva(customerBean.getEmail());
+		if(fechproxres.length()<7){
+			fechproxres="No tiene reserva futura";
+		}%>
 	
-		Bienvenido | <jsp:getProperty name="customerBean" property="email"/> | <%=str_date2 %> | Miembro desde <%=fecha2%>| Proxima reserva 
+		Bienvenido | <jsp:getProperty name="customerBean" property="email"/> | <%=str_date2 %> | Miembro desde <%=fecha2%>| Proxima reserva: <%=fechproxres%>
 	<% }
 	else if(customerBean.getPrivilegios().toString().equals(typeof.admin.toString())){
 		ArrayList<CustomerBean> users=new ArrayList<CustomerBean>();
