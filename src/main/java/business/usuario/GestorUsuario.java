@@ -117,10 +117,10 @@ public class GestorUsuario {
 	 * A method that shows us all users that are registered in the system
 	 * @throws SQLException 
 	 * */
-	public ArrayList<String> listarUsuarios() throws SQLException{
+	public ArrayList<UsuarioDTO> listarUsuarios() throws SQLException{
 		String info;
 		UserDAO u=new UserDAO();
-		ArrayList<String> users = new ArrayList<String>();
+		ArrayList<UsuarioDTO> users = new ArrayList<UsuarioDTO>();
 		users=u.listarUsuarios();
 		return users;
 	}

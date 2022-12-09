@@ -42,6 +42,8 @@ public class UsuarioDTO {
 	private String passw;
 	
 	private typeof tipo;
+	
+	private String nres;
 	/**
 	 * Empty (default) constructor
 	 * */
@@ -66,6 +68,13 @@ public class UsuarioDTO {
 		this.passw=password;
 	}
 
+	public String getNRes() {
+		return nres;
+	}
+
+	public void setNRes(String n) {
+		this.nres=n;
+	}
 
 	public typeof getTipo() {
 		return tipo;
@@ -74,6 +83,7 @@ public class UsuarioDTO {
 	public void setTipo(typeof tipo) {
 		this.tipo=tipo;
 	}
+	
 	public String getPass() {
 		return passw;
 	}

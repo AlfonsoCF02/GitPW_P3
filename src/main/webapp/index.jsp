@@ -64,14 +64,19 @@
 		Bienvenido | <jsp:getProperty name="customerBean" property="email"/> | <%=str_date2 %> | Miembro desde <%=fecha2%>
 	<% }
 	else if(customerBean.getPrivilegios().toString().equals(typeof.admin.toString())){
-		GestorUsuario ug=new GestorUsuario();
-		ArrayList<String> users = new ArrayList<String>();
-		users=ug.listarUsuarios();
+		ArrayList<CustomerBean> users=new ArrayList<CustomerBean>();
+		users=customerBean.users();
 		int i=0;
+		String usermail="";
+		String fech="";
+		String nres="";
 		while(i<users.size()){
-			String info=users.get(i);
+			usermail=users.get(i).getEmail();
+			fech=users.get(i).getprimres().toString();
+			nres=users.get(i).getNres();
+			String info="Email: "+usermail+" "+" fecha inscripcion: "+fech+" "+" Numero reservas: "+nres+"\n";
 		    %>
-			<%=info %><br/><br/>
+			<%=info%><br/><br/>
 			<%
 			i++;
 		}

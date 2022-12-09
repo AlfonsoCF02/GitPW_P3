@@ -218,8 +218,8 @@ public class UserDAO {
 	 * @throws SQLException
 	 */
 	
-	public ArrayList<String> listarUsuarios() throws SQLException {
-		ArrayList<String> users = new ArrayList<String>();
+	public ArrayList<UsuarioDTO> listarUsuarios() throws SQLException {
+		ArrayList<UsuarioDTO> users = new ArrayList<UsuarioDTO>();
 		connection dbConnection = new connection();
 		QuerysProperties a=new QuerysProperties();
 		Connection connection = dbConnection.getConnection();
@@ -227,8 +227,8 @@ public class UserDAO {
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		ReservaChildDAO rd=new ReservaChildDAO();
-		String info="";
 		while (rs.next()) {
+			UsuarioDTO u=new UsuarioDTO();
 			String nombre = rs.getString("nombre");
 			String apellidos = rs.getString("apellidos");
 			String email = rs.getString("email");
@@ -236,10 +236,17 @@ public class UserDAO {
 			java.sql.Date firstB = rs.getDate("primres");
 			String passw=rs.getString("pass");
 			String tipo=rs.getString("tipo");
+			typeof type;
+			if(tipo.equals(typeof.admin.toString())) {
+				type=typeof.admin;
+			}else {
+				type=typeof.user;
+			}
 			String nres=rd.obtenerNReservas(email);
-			info=("Email: "+email+" "+"PrimeraReserva: "+firstB+" "+"Numero reservas: "+
-			nres+"\n");
-			users.add(info);
+			u=new UsuarioDTO(nombre, apellidos,birth,email,passw,type);
+			u.setFirstBooking(firstB);
+			u.setNRes(nres);
+			users.add(u);
 		}
 		if (stmt != null){ 
 			stmt.close(); 
