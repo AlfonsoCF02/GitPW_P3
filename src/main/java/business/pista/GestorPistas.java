@@ -54,24 +54,6 @@ public class GestorPistas {
 			return -1;
 		}
 	}
-
-	/**
-	 * A method that allow to create new karts
-	 * Karts will be saved in the DB
-	 * @throws SQLException 
-	 * */
-	public Integer crearKart(Integer id, Boolean karttype, kartstat stateofkart ) throws SQLException {
-		KartDAO u=new KartDAO();
-		KartDTO x=new KartDTO(id, karttype, stateofkart);
-		Integer value=u.altaKart(x);	
-		if(value==0) {
-			return 0;
-			
-		}else {
-			
-			return -1;
-		}
-	}
 	
 	/**
 	 * A method that shows us all tracks that are in maintenance

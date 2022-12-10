@@ -70,6 +70,14 @@
     <servlet-name>kartpista</servlet-name>
     <url-pattern>/kartpista</url-pattern>
   </servlet-mapping>
+<servlet>
+    <servlet-name>kartstate</servlet-name>
+    <servlet-class>servlets.kartStateController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>kartstate</servlet-name>
+    <url-pattern>/kartstate</url-pattern>
+  </servlet-mapping>
 
 
 </web-app>

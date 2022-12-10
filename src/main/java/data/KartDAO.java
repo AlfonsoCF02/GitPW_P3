@@ -223,4 +223,30 @@ public class KartDAO {
 		return k;
 	}
 	
+public Integer modificarKartState(KartDTO x) throws SQLException {
+		
+		connection dbConnection = new connection();
+		Connection connection = dbConnection.getConnection();
+		QuerysProperties a=new QuerysProperties();
+
+		if(comprobarKartExistente(x.getId())==false) {
+			return -1;
+		}
+		
+		int status = 0;
+			
+		try {
+			PreparedStatement ps=connection.prepareStatement("update karts set estado=? where id=?");
+			ps.setString(1,x.getKartstatus().toString());
+			ps.setInt(2, x.getId());
+			status = ps.executeUpdate();
+			dbConnection.closeConnection();
+			return 0;
+			
+		}catch(Exception e) {
+			System.out.println(e);
+			return -1;
+		}
+	}
+	
 }

@@ -10,7 +10,7 @@
 <title>ERROR!!</title>
 </head>
 <body>
-Kart ya asociado a una pista <br/>
+Kart no existente <br/>
 <a href="./index.jsp">Volver</a>
 </body>
 </html>

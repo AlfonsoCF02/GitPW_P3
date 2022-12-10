@@ -10,7 +10,7 @@
 <title>ERROR!!</title>
 </head>
 <body>
-Kart ya asociado a una pista <br/>
+El estado solo puede ser mantenimiento/reservado/disponible<br/>
 <a href="./index.jsp">Volver</a>
 </body>
 </html>
