@@ -29,24 +29,34 @@ public class KartsPistasDAO {
 	 * @throws SQLException
 	 */
 	
-	public Integer asociarKartPista(KartDTO k, PistaDTO p) throws FileNotFoundException {
+	public Integer asociarKartPista(KartDTO k, PistaDTO p) throws FileNotFoundException, SQLException {
 		connection dbConnection = new connection();
 		Connection connection = dbConnection.getConnection();
 		QuerysProperties a=new QuerysProperties();
 
-	try {
+		KartDAO kd=new KartDAO();
+		PistaDAO pd=new PistaDAO();
 		int id = k.getId();
 		String nombre="'"+p.getName()+"'";
-		String query = "select * from karts where id=" + "'" +id; 
+		if(!kd.comprobarKartExistente(id)) {
+			return -3;
+		}
+		if(!pd.comprobarPistaExistente(p.getName())) {
+			return -3;
+		}
+		String query = "select * from karts where pista=" +nombre; 
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		int count=0;
 		KartDAO t = new KartDAO();
 		while (rs.next()) {
 			count++;
-			int kart = rs.getInt("id");
-			String pista = rs.getString("pista");
-			if(pista!=null) {
+		}
+		query = "select * from karts where id=" +"'"+id+"'"; 
+	    rs = (ResultSet) stmt.executeQuery(query);
+	    while (rs.next()) {
+			String val=rs.getString("pista");
+			if (val!=null) {
 				return -1;
 			}
 		}
@@ -62,11 +72,7 @@ public class KartsPistasDAO {
 		else {
 			return -2;
 		}
-	}catch(SQLException e){
-		return -1;
-	}catch(NullPointerException e1) {
-		return -3;
-	}
+	
 	}
 	
 }
