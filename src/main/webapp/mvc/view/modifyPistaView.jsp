@@ -12,7 +12,7 @@
 <title>Modificar Pista</title>
 </head>
 <body>
-<form method="post" action="${pageContext.request.contextPath}/pistatate">
+<form method="post" action="${pageContext.request.contextPath}/pistastate">
 	<label for="pista">pista: </label>
 	<input type="text" id="pista" name="pista" placeholder="" required><br/>
 	<label for="disponible">Estado nuevo: </label>

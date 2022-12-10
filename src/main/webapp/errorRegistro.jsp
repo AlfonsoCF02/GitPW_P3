@@ -12,6 +12,6 @@
 <body>
 El usuario ya esta registrado
 <br/>
-<a href="../../index.jsp">Volver</a>
+<a href="./index.jsp">Volver al inicio</a>
 </body>
 </html>

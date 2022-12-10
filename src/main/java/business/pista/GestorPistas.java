@@ -103,7 +103,7 @@ public class GestorPistas {
 	public Integer modificarPistaState(String nom,String val) throws SQLException {
 		PistaDAO kd = new PistaDAO();
 		PistaDTO kk=new PistaDTO();
-		kk.setName(null);
+		kk.setName(nom);
 		if(val.equals("true")) {
 			kk.setState(true);
 		}else {

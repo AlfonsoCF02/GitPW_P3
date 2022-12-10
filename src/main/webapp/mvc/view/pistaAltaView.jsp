@@ -17,8 +17,8 @@
 	*/
 String nextPage = "../../index.jsp";
 String messageNextPage = request.getParameter("message");
-%>
-<form id="formpista" method="post" action="${pageContext.request.contextPath}/pistaAlta">
+if (customerBean != null && !customerBean.getEmail().equals("") && (customerBean.getPrivilegios().toString().equals("admin"))) {%>
+	<form id="formpista" method="post" action="${pageContext.request.contextPath}/pistaAlta">
 	<label for="nombre">Nombre: </label>
 	<input type="text" id="nombre" name="nombre" placeholder="Enter name" required><br/>
 	<label for="disponible">Disponible: </label>
@@ -29,6 +29,11 @@ String messageNextPage = request.getParameter("message");
 	<input type="text" id="dificultad" name="dificultad" placeholder="child,family,adult" required><br/>
 	<br/>
 	<input type="submit" value="Submit">
-</form>
+</form>	<%
+} else{%>
+	Debe registrarse para acceder a la funcionalidad y ser administrador
+	<a href="../../index.jsp">volver al indice</a><br/><%
+}
+%>
 </body>
 </html>

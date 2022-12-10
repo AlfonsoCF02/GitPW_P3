@@ -15,7 +15,8 @@ String messageNextPage = request.getParameter("message");
 if (messageNextPage == null) messageNextPage = "";
 
 if (customerBean != null && !customerBean.getEmail().equals("")) {
-	nextPage = "../../index.jsp";
+	%>Usted ya esta logado
+	<a href="../../index.jsp">volver al indice</a><br/><%
 } else {
 %>
 <%= messageNextPage %><br/><br/>

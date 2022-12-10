@@ -11,6 +11,6 @@
 </head>
 <body>
 Kart ya asociado a una pista <br/>
-<a href="./index.jsp">Volver</a>
+<a href="./index.jsp">Volver al inicio</a>
 </body>
 </html>

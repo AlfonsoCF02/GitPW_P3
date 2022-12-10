@@ -12,6 +12,6 @@
 <body>
 Los datos de dificultad solo pueden ser child/family/adult<br/>
 Y los datos de disponible true/false<br/>
-<a href="./index.jsp">Volver</a>
+<a href="./index.jsp">Volver al inicio</a>
 </body>
 </html>

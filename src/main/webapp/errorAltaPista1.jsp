@@ -11,6 +11,6 @@
 </head>
 <body>
 La pista ya se encuentra creada
-<a href="./index.jsp">Volver</a>
+<a href="./index.jsp">Volver al inicio</a>
 </body>
 </html>

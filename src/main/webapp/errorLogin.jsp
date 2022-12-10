@@ -12,6 +12,7 @@
 <body>
 
 Los datos del usuario son incorrectos, vuelva a intentarlo!
+<a href="../../index.jsp">Volver al inicio</a>
 
 </body>
 </html>
