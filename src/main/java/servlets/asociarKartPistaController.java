@@ -54,6 +54,7 @@ public class asociarKartPistaController extends HttpServlet {
 	    if(status==0) {
 	    	request.getRequestDispatcher("index.jsp").forward(request, response);
 	    }else if(status==-1) {
+	    	request.setAttribute("kart", kart);
 	    	request.getRequestDispatcher("errorAsociar1.jsp").forward(request, response);
 			return;
 	    }else if(status==-2) {

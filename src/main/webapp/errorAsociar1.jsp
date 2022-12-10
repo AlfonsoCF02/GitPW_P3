@@ -11,6 +11,7 @@
 </head>
 <body>
 Kart ya asociado a una pista <br/>
+<%=request.getParameter("kart") %>
 <a href="./index.jsp">Volver</a>
 </body>
 </html>

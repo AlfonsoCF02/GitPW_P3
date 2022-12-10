@@ -37,16 +37,16 @@ public class KartsPistasDAO {
 	try {
 		int id = k.getId();
 		String nombre="'"+p.getName()+"'";
-		String query = a.getSelectKartPistasFirst() + "'" +id + "'" + a.getSelectKartPistasSecond() + nombre ; 
+		String query = "select * from karts where id=" + "'" +id; 
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		int count=0;
 		KartDAO t = new KartDAO();
 		while (rs.next()) {
 			count++;
-			int kart = rs.getInt("kart");
+			int kart = rs.getInt("id");
 			String pista = rs.getString("pista");
-			if(kart==id && pista==nombre) {
+			if(pista!=null) {
 				return -1;
 			}
 		}

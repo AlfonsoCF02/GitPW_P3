@@ -33,22 +33,10 @@ boolean continuar=true;
 String fin="";
 %>
 <form id="formkart" method="post" action="${pageContext.request.contextPath}/kartpista">
-	<label for="kart">Kart: </label>
-	<select name="karts">
-	<%for(int i=1;i<karts.size();i++){%>
-    <option value=<%=i%>><%=i%></option>
-    <%} %>
-      </select><br/>
-	<label for="pista">Pista: </label>
-	<select name="pistas">
-	<%for(int i=0;i<pistas.size();i++){
-		String pista=pistas.get(i);
-		%>
-		<option value=<%=pista.substring(8,pista.indexOf(','))%>><%=pista.substring(8,pista.indexOf(','))%></option>
-		<%
-	 } %>
-      </select><br/>	
-	<br/>
+	<label for="kart">kart: </label>
+	<input type="text" id="kart" name="kart" placeholder="" required><br/>
+	<label for="pista">pista: </label>
+	<input type="text" id="pista" name="pista" placeholder="" required><br/>	
 	<input type="submit" value="Submit">
 </form>
 </body>
