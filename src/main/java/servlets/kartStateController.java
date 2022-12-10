@@ -34,7 +34,7 @@ public class kartStateController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("mvc/view/modifyKartViewView.jsp").forward(request, response);
+		request.getRequestDispatcher("mvc/view/modifyKartView.jsp").forward(request, response);
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class kartStateController extends HttpServlet {
 		   GestorKart gk=new GestorKart();
 		   int s;
 		try {
-			s = gk.crearKart(null, null, ks);
+			s = gk.modificarKartState(Integer.parseInt(id), ks);
 			if(s==0) {
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}else {
