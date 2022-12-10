@@ -10,6 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
@@ -120,7 +121,7 @@ public abstract class ReservaDAO {
 		Connection connection = dbConnection.getConnection();
 		QuerysProperties a=new QuerysProperties();  
 		String mail="'"+email+"'";
-		java.sql.Date date=new java.sql.Date(0);
+		java.sql.Date date=new java.sql.Date(Calendar.getInstance().getTime().getTime());
 		String fech="'"+date.toString()+"'";
 		String query = "select * from reservas where email = "+mail+" and fecha>"+ fech ; 
 		Statement stmt = connection.createStatement();
@@ -179,12 +180,13 @@ public abstract class ReservaDAO {
 	public Integer eliminarReserva(int nreserva) throws MySQLSyntaxErrorException, SQLException {
 		int status=0;
 		QuerysProperties a=new QuerysProperties();
-		if(!esreservafutura(nreserva)) {
+		if(comprobarReservaExistente(nreserva)==false) {
 			return -3;
 		}
-		if(comprobarReservaExistente(nreserva)==false) {
+		if(esreservafutura(nreserva)==false) {
 			return -1;
 		}
+		
 		try{
 			connection dbConnection = new connection();
 			Connection connection = dbConnection.getConnection();
@@ -202,13 +204,13 @@ public abstract class ReservaDAO {
 		connection dbConnection = new connection();
 		Connection connection = dbConnection.getConnection();
 		QuerysProperties a=new QuerysProperties(); 
-		java.sql.Date date=new java.sql.Date(0);
+		java.sql.Date date=new java.sql.Date(Calendar.getInstance().getTime().getTime());
 		String fech="'"+date.toString()+"'";
-		String query = "select * from reservas where where id= "+"'"+id+"'"+"fecha>"+ fech ; 
+		String query = "select * from reservas where id= "+"'"+id+"'"+" and fecha>"+ fech ; 
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		
-		while (rs.next()) {
+		if(rs.next()) {
 			return true;		
 		}
 		if (stmt != null){ 

@@ -547,16 +547,7 @@ public class GestorReservas {
 	public int eliminarReserva(int id) throws SQLException {
 
 		ReservaChildDAO rd = new ReservaChildDAO();
-		int status=rd.eliminarReserva(id);
-		if (status == 0) {
-			return 0;
-		}else if(status==-1) {
-			return -1;
-		}else if(status==-3) {
-			return -3;
-		}else {
-			return -2;
-		}
+		return rd.eliminarReserva(id);
 	}
 	
 	public int altaBono(String email,String tipo) {

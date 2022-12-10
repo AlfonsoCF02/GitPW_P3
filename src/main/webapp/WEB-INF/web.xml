@@ -95,12 +95,12 @@
     <url-pattern>/reservalistar</url-pattern>
   </servlet-mapping>
 <servlet>
-    <servlet-name>eliminarreserva</servlet-name>
+    <servlet-name>eliminareserva</servlet-name>
     <servlet-class>servlets.eliminarReservaController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>eliminarreserva</servlet-name>
-    <url-pattern>/eliminarreserva</url-pattern>
+    <servlet-name>eliminareserva</servlet-name>
+    <url-pattern>/eliminareserva</url-pattern>
   </servlet-mapping>
 
 </web-app>

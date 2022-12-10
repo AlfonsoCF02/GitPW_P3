@@ -44,24 +44,30 @@ public class eliminarReservaController extends HttpServlet {
 		String id=request.getParameter("reserva");
 		GestorReservas rd=new GestorReservas();
 		try {
+            Integer.parseInt(id);
+            
+        } catch (NumberFormatException excepcion) {
+        	request.getRequestDispatcher("errorEliminar3.jsp").forward(request, response);
+			return;
+        }
+		try {
 			status=rd.eliminarReserva(Integer.parseInt(id));
-		} catch (NumberFormatException e) {
+			if(status==0) {
+				request.getRequestDispatcher("index.jsp").forward(request, response);
+			}
+			if(status==-1){
+				request.getRequestDispatcher("errorEliminar1.jsp").forward(request, response);
+				return;
+			}
+			if(status==-3){
+				request.getRequestDispatcher("errorEliminar2.jsp").forward(request, response);
+				return;
+			}
+		}
+		catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(status==0) {
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		}else if(status==-3){
-			request.getRequestDispatcher("errorEliminar1.jsp").forward(request, response);
-			return;
-		}else if(status==-1) {
-			request.getRequestDispatcher("errorEliminar2.jsp").forward(request, response);
-			return;
-		}
-		
+		}		
 	}
 
 }
