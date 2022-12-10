@@ -9,16 +9,8 @@
 </head>
 <body>
 <%
-/* Posibles flujos:
-	1) customerBean está logado (!= null && != "") -> Se redirige al index.jsp (no debería estar aquí pero hay que comprobarlo)
-	2) customerBean no está logado:
-		a) Hay parámetros en el request  -> procede del controlador /con mensaje 
-		b) No hay parámetros en el request -> procede del controlador /sin mensaje
-	*/
-String nextPage = "../controller/modifyController.jsp";
-String messageNextPage = request.getParameter("message");
-%>
-<form method="post" action="../controller/modifyController.jsp">
+if (customerBean != null && !customerBean.getEmail().equals("")) {%>
+	<form method="post" action="../controller/modifyController.jsp">
 	<label for="nombre">Nombre: </label>
 	<input type="text" name="nombre" placeholder="Enter name" required><br/>
 	<label for="apellidos">Apellidos: </label>
@@ -29,6 +21,12 @@ String messageNextPage = request.getParameter("message");
 	<label for="fechN">Fecha Nacimiento: </label>
 	<input type="Date" name="fechN" placeholder="Enter bithday" required><br/>
 	<input type="submit" value="Submit">
-</form>
+</form><%
+} else{%>
+	Debe registrarse para acceder a la funcionalidad
+	<a href="${pageContext.request.contextPath}/index.jsp">volver al indice</a><br/><%
+}
+%>
+
 </body>
 </html>

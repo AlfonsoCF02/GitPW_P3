@@ -54,6 +54,17 @@ public class pistaAltaController extends HttpServlet {
 			request.getRequestDispatcher("errorAltaPista2.jsp").forward(request, response);
 			return;
 		}
+		int mk=0;
+		try {
+            mk=Integer.parseInt(maxkarts);
+            if(mk<1) {
+            	request.getRequestDispatcher("errorAltaPista3.jsp").forward(request, response);
+    			return;
+            }
+        } catch (NumberFormatException excepcion) {
+        	request.getRequestDispatcher("errorAltaPista3.jsp").forward(request, response);
+			return;
+        }
 		int s=0;
 		diff d;
 		boolean b;

@@ -12,12 +12,19 @@
 <title>Modificar Kart</title>
 </head>
 <body>
-<form method="post" action="${pageContext.request.contextPath}/kartstate">
+<%
+if (customerBean != null && !customerBean.getEmail().equals("") && (customerBean.getPrivilegios().toString().equals("admin"))) {%>
+	<form method="post" action="${pageContext.request.contextPath}/kartstate">
 	<label for="kart">kart: </label>
 	<input type="text" id="kart" name="kart" placeholder="" required><br/>
 	<label for="estado">Estado nuevo: </label>
 	<input type="text" id="estado" name="estado" placeholder="" required><br/>	
 	<input type="submit" value="Submit">
-</form>
+</form><%
+} else{%>
+	Debe registrarse para acceder a la funcionalidad y ser administrador
+	<a href="${pageContext.request.contextPath}/index.jsp">volver al indice</a><br/><%
+}
+%>
 </body>
 </html>

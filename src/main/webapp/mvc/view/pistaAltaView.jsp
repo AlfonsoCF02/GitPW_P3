@@ -32,7 +32,7 @@ if (customerBean != null && !customerBean.getEmail().equals("") && (customerBean
 </form>	<%
 } else{%>
 	Debe registrarse para acceder a la funcionalidad y ser administrador
-	<a href="../../index.jsp">volver al indice</a><br/><%
+	<a href="${pageContext.request.contextPath}/index.jsp">volver al indice</a><br/><%
 }
 %>
 </body>
