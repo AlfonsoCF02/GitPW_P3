@@ -2,7 +2,6 @@ package servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,18 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import business.reserva.GestorReservas;
 import data.ReservaChildDAO;
 
 /**
- * Servlet implementation class reservaListarController
+ * Servlet implementation class eliminarReservaController
  */
-public class reservaListarController extends HttpServlet {
+public class eliminarReservaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public reservaListarController() {
+    public eliminarReservaController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,8 +30,9 @@ public class reservaListarController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request,response);	
-		
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("mvc/view/eliminarReservaView.jsp").forward(request, response);
 	}
 
 	/**
@@ -39,15 +40,28 @@ public class reservaListarController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ReservaChildDAO kd=new ReservaChildDAO();
-		ArrayList<String> res = new ArrayList<String>();
+		int status=0;
+		String id=request.getParameter("reserva");
+		GestorReservas rd=new GestorReservas();
 		try {
-			res=kd.listarReservas();
+			status=rd.eliminarReserva(Integer.parseInt(id));
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		request.setAttribute("listado", res);
-		request.getRequestDispatcher("/mvc/view/listarReservasView.jsp").forward(request, response);	}
+		if(status==0) {
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}else if(status==-3){
+			request.getRequestDispatcher("errorEliminar1.jsp").forward(request, response);
+			return;
+		}else if(status==-1) {
+			request.getRequestDispatcher("errorEliminar2.jsp").forward(request, response);
+			return;
+		}
+		
+	}
 
 }
