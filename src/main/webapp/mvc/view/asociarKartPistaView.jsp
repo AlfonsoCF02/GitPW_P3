@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Log in</title>
+<title>AsociarKP</title>
 </head>
 <body>
 <form method="post" action="${pageContext.request.contextPath}/kartpista">

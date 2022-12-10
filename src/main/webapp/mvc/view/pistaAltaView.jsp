@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Log in</title>
+<title>Alta pista</title>
 </head>
 <body>
 <%

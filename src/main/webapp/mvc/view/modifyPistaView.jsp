@@ -9,14 +9,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Modificar Kart</title>
+<title>Modificar Pista</title>
 </head>
 <body>
-<form method="post" action="${pageContext.request.contextPath}/kartstate">
-	<label for="kart">kart: </label>
-	<input type="text" id="kart" name="kart" placeholder="" required><br/>
-	<label for="estado">Estado nuevo: </label>
-	<input type="text" id="estado" name="estado" placeholder="" required><br/>	
+<form method="post" action="${pageContext.request.contextPath}/pistatate">
+	<label for="pista">pista: </label>
+	<input type="text" id="pista" name="pista" placeholder="" required><br/>
+	<label for="disponible">Estado nuevo: </label>
+	<input type="text" id="disponible" name="disponible" placeholder="true/false" required><br/>	
 	<input type="submit" value="Submit">
 </form>
 </body>

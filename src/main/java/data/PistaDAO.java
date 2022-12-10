@@ -225,5 +225,31 @@ public class PistaDAO {
 		return pistas;
 		
 	}
+	
+public Integer modificarPistaState(PistaDTO x) throws SQLException {
+		
+		connection dbConnection = new connection();
+		Connection connection = dbConnection.getConnection();
+		QuerysProperties a=new QuerysProperties();
+
+		if(comprobarPistaExistente(x.getName())==false) {
+			return -1;
+		}
+		
+		int status = 0;
+			
+		try {
+			PreparedStatement ps=connection.prepareStatement("update pistas set disponible=? where nombre=?");
+			ps.setString(1, x.getState().toString());
+			ps.setString(2, x.getName());
+			status = ps.executeUpdate();
+			dbConnection.closeConnection();
+			return 0;
+			
+		}catch(Exception e) {
+			System.out.println(e);
+			return -1;
+		}
+	}
 }
 

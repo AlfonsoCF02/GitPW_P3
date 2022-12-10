@@ -99,4 +99,17 @@ public class GestorPistas {
 		pistas=u.listarPistas();
 		return pistas;
 	}
+	
+	public Integer modificarPistaState(String nom,String val) throws SQLException {
+		PistaDAO kd = new PistaDAO();
+		PistaDTO kk=new PistaDTO();
+		kk.setName(null);
+		if(val.equals("true")) {
+			kk.setState(true);
+		}else {
+			kk.setState(false);
+		}
+		int i=kd.modificarPistaState(kk);
+		return i;
+	}
 }

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Log in</title>
+<title>Listar Pistas</title>
 </head>
 <body>
 <%

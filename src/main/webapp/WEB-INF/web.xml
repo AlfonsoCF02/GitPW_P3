@@ -78,6 +78,13 @@
     <servlet-name>kartstate</servlet-name>
     <url-pattern>/kartstate</url-pattern>
   </servlet-mapping>
-
+<servlet>
+    <servlet-name>pistastate</servlet-name>
+    <servlet-class>servlets.pistaStateController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pistastate</servlet-name>
+    <url-pattern>/pistastate</url-pattern>
+  </servlet-mapping>
 
 </web-app>

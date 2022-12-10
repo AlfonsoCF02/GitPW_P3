@@ -6,7 +6,7 @@
 <head>
 <script src = "../../js/checkFormularioKart.js"></script>
 <meta charset="UTF-8">
-<title>Log in</title>
+<title>Alta Kart</title>
 </head>
 <body>
 <%
