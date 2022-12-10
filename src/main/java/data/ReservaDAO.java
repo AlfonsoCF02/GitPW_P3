@@ -9,6 +9,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 
 import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
@@ -27,12 +28,12 @@ public abstract class ReservaDAO {
 	/**
 	 * A method that allow to list the bookings
 	 * */
-	public String listarReservas() throws SQLException {
+	public ArrayList<String> listarReservas() throws SQLException {
 		String info="";
 		connection dbConnection = new connection();
 		Connection connection = dbConnection.getConnection();
 		QuerysProperties a=new QuerysProperties();
-
+		ArrayList<String> res=new ArrayList<String>();
 		String query = a.getSelectAllReservas(); 
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
@@ -48,14 +49,15 @@ public abstract class ReservaDAO {
 			int price = rs.getInt("precio");
 			String type = rs.getString("tipo");
 			java.sql.Date date = rs.getDate("fecha");
-			info+=("Id: "+id+" "+"Email: "+email+" "+"Descuento: "+discount+" "+"Duracion: "+duration+" "+"PistaDTO: "+pista+" "+"Adultos: "+nadults+" "+"Ninos: "+nchilds+" "+
+			info=("Id: "+id+" "+"Email: "+email+" "+"Descuento: "+discount+" "+"Duracion: "+duration+" "+"PistaDTO: "+pista+" "+"Adultos: "+nadults+" "+"Ninos: "+nchilds+" "+
 					"NumeroBono: "+nbono+" "+"Precio: "+price+" "+"Tipo: "+type+" "+"Fecha: "+date+"\n");
+			res.add(info);
 		}
 		if (stmt != null){ 
 			stmt.close(); 
 		}
 		dbConnection.closeConnection();
-		return info;
+		return res;
 	}
 		
 	
@@ -177,7 +179,9 @@ public abstract class ReservaDAO {
 	public Integer eliminarReserva(int nreserva) throws MySQLSyntaxErrorException, SQLException {
 		int status=0;
 		QuerysProperties a=new QuerysProperties();
-
+		if(!esreservafutura(nreserva)) {
+			return -3;
+		}
 		if(comprobarReservaExistente(nreserva)==false) {
 			return -1;
 		}
@@ -193,5 +197,26 @@ public abstract class ReservaDAO {
 
 		}
 	}
+	
+	public boolean esreservafutura(int id) throws SQLException {
+		connection dbConnection = new connection();
+		Connection connection = dbConnection.getConnection();
+		QuerysProperties a=new QuerysProperties(); 
+		java.sql.Date date=new java.sql.Date(0);
+		String fech="'"+date.toString()+"'";
+		String query = "select * from reservas where where id= "+"'"+id+"'"+"fecha>"+ fech ; 
+		Statement stmt = connection.createStatement();
+		ResultSet rs = (ResultSet) stmt.executeQuery(query);
+		
+		while (rs.next()) {
+			return true;		
+		}
+		if (stmt != null){ 
+			stmt.close(); 
+		}
+		dbConnection.closeConnection();
+		return false;
+	}
+	
 	
 }

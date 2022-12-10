@@ -86,5 +86,13 @@
     <servlet-name>pistastate</servlet-name>
     <url-pattern>/pistastate</url-pattern>
   </servlet-mapping>
+<servlet>
+    <servlet-name>reservalistar</servlet-name>
+    <servlet-class>servlets.reservaListarController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>reservalistar</servlet-name>
+    <url-pattern>/reservalistar</url-pattern>
+  </servlet-mapping>
 
 </web-app>

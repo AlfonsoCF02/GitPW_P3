@@ -3,6 +3,7 @@ package business.reserva;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
@@ -529,7 +530,7 @@ public class GestorReservas {
 		
 	}
 	
-	public String verResFuturas() throws SQLException {
+	public ArrayList<String> verResFuturas() throws SQLException {
 
 		ReservaChildDAO rd = new ReservaChildDAO();
 		return rd.listarReservas();

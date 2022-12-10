@@ -104,6 +104,7 @@
 		<a href="${pageContext.request.contextPath}/kartpista">Asociar kart-pista</a><br/>
 		<a href="${pageContext.request.contextPath}/kartstate">modificar estado kart</a><br/>
 		<a href="${pageContext.request.contextPath}/pistastate">modificar estado pista</a><br/>
+		<a href="${pageContext.request.contextPath}/reservalistar">listar reservas</a><br/>		
 	<%}%>
 </body>
 </html>
