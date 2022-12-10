@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import business.kart.GestorKart;
 import data.KartDAO;
 
 /**
@@ -47,7 +48,7 @@ public class kartListarController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		KartDAO kd=new KartDAO();
+		GestorKart kd=new GestorKart();
 		ArrayList<String> karts = new ArrayList<String>();
 		try {
 			karts=kd.listarKarts();

@@ -173,7 +173,8 @@ public class KartDAO {
 			Integer id = rs.getInt("id");
 			Boolean tipo = rs.getBoolean("tipo");
 			String estado = rs.getString("estado");
-			info=("Id: "+id+" "+"Tipo: "+tipo+" "+"Estado: "+estado+"\n");
+			String pista = rs.getString("pista");
+			info=("Id: "+id+" "+"Tipo: "+tipo+" "+"Estado: "+estado+" "+"Pista: "+pista+"\n");
 			karts.add(info);
 		}
 		if (stmt != null){ 

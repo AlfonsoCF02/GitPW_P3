@@ -1,8 +1,14 @@
 package business.kart;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import data.KartDAO;
+import data.common.connection;
+import properties.QuerysProperties;
 
 public class GestorKart {
 
@@ -32,5 +38,14 @@ public class GestorKart {
 		int i=kd.modificarKartState(kk);
 		return i;
 	}
+	
+public ArrayList<String> listarKarts() throws SQLException {
+		ArrayList<String> karts = new ArrayList<String>();
+		KartDAO kd=new KartDAO();
+		karts=kd.listarKarts();
+		return karts;
+		
+	}
+	
 	
 }
