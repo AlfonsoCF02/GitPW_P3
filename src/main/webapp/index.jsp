@@ -101,7 +101,7 @@
 		<a href="${pageContext.request.contextPath}/kartListar">Listar karts</a><br/>
 		<a href="${pageContext.request.contextPath}/pistaAlta">Crear pista</a><br/>
 		<a href="${pageContext.request.contextPath}/pistaListar">Listar pistas</a>
-		<a href="${pageContext.request.contextPath}/asociarkartpista">Asociar kart-pista</a>
+		<a href="${pageContext.request.contextPath}/kartpista">Asociar kart-pista</a>
 	<%}%>
 </body>
 </html>

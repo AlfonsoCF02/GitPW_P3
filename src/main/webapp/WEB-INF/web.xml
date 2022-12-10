@@ -62,7 +62,14 @@
     <servlet-name>pistaListar</servlet-name>
     <url-pattern>/pistaListar</url-pattern>
   </servlet-mapping>
-
+<servlet>
+    <servlet-name>kartpista</servlet-name>
+    <servlet-class>servlets.asociarKartPistaController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>kartpista</servlet-name>
+    <url-pattern>/kartpista</url-pattern>
+  </servlet-mapping>
 
 
 </web-app>

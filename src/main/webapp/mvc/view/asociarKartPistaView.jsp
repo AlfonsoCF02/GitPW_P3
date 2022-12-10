@@ -32,8 +32,8 @@ int j;
 boolean continuar=true;
 String fin="";
 %>
-<form id="formkart" method="post" action="${pageContext.request.contextPath}/kartAlta">
-	<label for="tipo">Kart: </label>
+<form id="formkart" method="post" action="${pageContext.request.contextPath}/kartpista">
+	<label for="kart">Kart: </label>
 	<select name="karts">
 	<%for(int i=1;i<karts.size();i++){%>
     <option value=<%=i%>><%=i%></option>
@@ -44,7 +44,7 @@ String fin="";
 	<%for(int i=0;i<pistas.size();i++){
 		String pista=pistas.get(i);
 		%>
-		<option value=<%=pista.substring(7,pista.indexOf(','))%>><%=pista.substring(7,pista.indexOf(','))%></option>
+		<option value=<%=pista.substring(8,pista.indexOf(','))%>><%=pista.substring(8,pista.indexOf(','))%></option>
 		<%
 	 } %>
       </select><br/>	

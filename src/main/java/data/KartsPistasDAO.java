@@ -52,9 +52,9 @@ public class KartsPistasDAO {
 		}
 		if(count<p.getMaxkarts()&&t.comprobarKartExistente(k.getId())) {
 			int status=0;
-			PreparedStatement ps=connection.prepareStatement(a.getInsertKartPistas());
-			ps.setInt(1, k.getId());
-			ps.setString(2, p.getName());
+			PreparedStatement ps=connection.prepareStatement("update karts set pista=? where id=?");
+			ps.setString(1, p.getName());
+			ps.setInt(2, k.getId());
 			status = ps.executeUpdate();
 			dbConnection.closeConnection();
 			return 0;
