@@ -14,6 +14,21 @@
 	<title>Cordoba Karting</title>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/estilos.css">
 </head>
+
+<style type="text/css">
+
+body {
+
+    background: url(images/index_McQueen.jpg);
+	background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    
+}
+
+</style>
+
 <body>
 	<header>
 		<nav class="nav">
