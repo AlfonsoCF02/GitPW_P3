@@ -33,7 +33,7 @@ public class KartsPistasDAO {
 		connection dbConnection = new connection();
 		Connection connection = dbConnection.getConnection();
 		QuerysProperties a=new QuerysProperties();
-
+		try {
 		KartDAO kd=new KartDAO();
 		PistaDAO pd=new PistaDAO();
 		int id = k.getId();
@@ -71,6 +71,9 @@ public class KartsPistasDAO {
 		}
 		else {
 			return -2;
+		}
+		}catch(NullPointerException e) {
+			return -3;
 		}
 	
 	}
