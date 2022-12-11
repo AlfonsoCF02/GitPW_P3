@@ -15,12 +15,16 @@ if (customerBean != null && !customerBean.getEmail().equals("") && (customerBean
 
 	ArrayList<String> datos = (ArrayList<String>) request.getAttribute("listado");
 	int i=0;
-	while(i<datos.size()){
-		String info=datos.get(i);
-	    %>
-		<%=info %><br/><br/>
-		<%
-		i++;
+	if(datos.isEmpty()){%>
+		<%="Lo sentimos deseado cliente, usted no tiene reservas para estas fechas"%><br/>
+	<%}else{
+		while(i<datos.size()){
+			String info=datos.get(i);
+		    %>
+			<%=info %><br/><br/>
+			<%
+			i++;
+		}
 	}
 %>
 <a href="./index.jsp">Inicio</a><%

@@ -47,17 +47,17 @@ public class listarConcretaController extends HttpServlet {
 		String fechaux1=request.getParameter("fech1");
 		String fechaux2=request.getParameter("fech2");
 		String email=request.getParameter("email");
-		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
-        Date parsed = null;
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date parsed = null;
 		try {
-			parsed = (Date) format.parse(fechaux1);
+			parsed = format.parse(fechaux1);
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
         java.sql.Date fech1 = new java.sql.Date(parsed.getTime());
         try {
-			parsed = (Date) format.parse(fechaux2);
+			parsed = format.parse(fechaux2);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,6 +75,7 @@ public class listarConcretaController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		request.setAttribute("listado", res);
 		request.getRequestDispatcher("/mvc/view/listarReservasConcretasView.jsp").forward(request, response);
 	}
