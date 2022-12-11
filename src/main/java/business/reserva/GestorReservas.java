@@ -537,10 +537,10 @@ public class GestorReservas {
 
 	}
 	
-	public String verResConcreta(Date fech,String name) throws SQLException {
+	public ArrayList<String>  verResConcreta(Date fech,Date fech2,String name) throws SQLException {
 
 		ReservaChildDAO rd = new ReservaChildDAO();
-		return rd.listarReservasConcreta(fech,name);
+		return rd.listarReservasConcreta(fech,fech2,name);
 
 	}
 	

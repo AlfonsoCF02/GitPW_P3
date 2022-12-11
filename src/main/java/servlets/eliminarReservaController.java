@@ -62,6 +62,9 @@ public class eliminarReservaController extends HttpServlet {
 			if(status==-3){
 				request.getRequestDispatcher("errorEliminar2.jsp").forward(request, response);
 				return;
+			}if(status==-2) {
+				request.getRequestDispatcher("errorEliminar4.jsp").forward(request, response);
+				return;
 			}
 		}
 		catch (SQLException e) {

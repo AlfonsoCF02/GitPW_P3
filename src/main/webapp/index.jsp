@@ -82,6 +82,7 @@ body {
 		}%>
 	
 		Bienvenido | <jsp:getProperty name="customerBean" property="email"/> | <%=str_date2 %> | Miembro desde <%=fecha2%>| Proxima reserva: <%=fechproxres%>
+		<a href="${pageContext.request.contextPath}/listarConcreta">Listar reservas concretas</a><br/>
 	<% }
 	else if(customerBean.getPrivilegios().toString().equals(typeof.admin.toString())){
 		ArrayList<CustomerBean> users=new ArrayList<CustomerBean>();

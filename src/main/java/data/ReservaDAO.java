@@ -65,14 +65,17 @@ public abstract class ReservaDAO {
 	/**
 	 * A method that allow to list a specific booking
 	 * */
-	public String listarReservasConcreta(Date fech,String name) throws SQLException {
+	public ArrayList<String> listarReservasConcreta(Date fech,Date fech2,String name) throws SQLException {
 		String info="";
 		connection dbConnection = new connection();
 		Connection connection = dbConnection.getConnection();
 		QuerysProperties a=new QuerysProperties();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");  
-	    String stringDate= format.format(fech);  
-		String query = a.getSelectConcretaUno() + "'"+stringDate+"'" + a.getSelectConcretaDos() + "'"+name+"'" ; 
+	    String stringDate= format.format(fech); 
+		ArrayList<String> res=new ArrayList<String>();
+	    String date2=format.format(fech2);
+		java.sql.Date dateres=new java.sql.Date(Calendar.getInstance().getTime().getTime());
+		String query = "select * from reservas where fecha>" + "'"+stringDate+"'" + " and fecha<"+ "'"+date2+"'" +" and email=" + "'"+name+"'" ; 
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		while (rs.next()) {
@@ -87,14 +90,20 @@ public abstract class ReservaDAO {
 			int price = rs.getInt("precio");
 			String type = rs.getString("tipo");
 			java.sql.Date date = rs.getDate("fecha");
-			info+=("Id: "+id+" "+"Email: "+email+" "+"Descuento: "+discount+" "+"Duracion: "+duration+" "+"PistaDTO: "+pista+" "+"Adultos: "+nadults+" "+"Ninos: "+nchilds+" "+
-					"NumeroBono: "+nbono+" "+"Precio: "+price+" "+"Tipo: "+type+" "+"Fecha: "+date+"\n");
+			if(date.before(dateres)) {
+				info=("Id: "+id+" "+"Email: "+email+" "+"Descuento: "+discount+" "+"Duracion: "+duration+" "+"PistaDTO: "+pista+" "+"Adultos: "+nadults+" "+"Ninos: "+nchilds+" "+
+						"NumeroBono: "+nbono+" "+"Precio: "+price+" "+"Tipo: "+type+" "+"Fecha: "+date+" "+"Reserva ya realizada"+"\n");
+			}else {
+				info=("Id: "+id+" "+"Email: "+email+" "+"Descuento: "+discount+" "+"Duracion: "+duration+" "+"PistaDTO: "+pista+" "+"Adultos: "+nadults+" "+"Ninos: "+nchilds+" "+
+						"NumeroBono: "+nbono+" "+"Precio: "+price+" "+"Tipo: "+type+" "+"Fecha: "+date+" "+"Reserva no realizada"+"\n");
+			}
+			res.add(info);
 		}
 		if (stmt != null){ 
 			stmt.close(); 
 		}
 		dbConnection.closeConnection();
-		return info;
+		return res;
 	}
 	
 	public String obtenerNReservas(String email) throws SQLException {

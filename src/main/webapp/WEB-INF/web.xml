@@ -102,5 +102,13 @@
     <servlet-name>eliminareserva</servlet-name>
     <url-pattern>/eliminareserva</url-pattern>
   </servlet-mapping>
+<servlet>
+    <servlet-name>listarConcreta</servlet-name>
+    <servlet-class>servlets.listarConcretaController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listarConcreta</servlet-name>
+    <url-pattern>/listarConcreta</url-pattern>
+  </servlet-mapping>
 
 </web-app>
