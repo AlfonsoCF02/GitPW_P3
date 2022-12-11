@@ -19,8 +19,8 @@ String nextPage = "../../index.jsp";
 String messageNextPage = request.getParameter("message");
 if (customerBean != null && !customerBean.getEmail().equals("") && (customerBean.getPrivilegios().toString().equals("user"))) {%>
 <form id="formpists" method="post" action="${pageContext.request.contextPath}/pistasdisponibles">
-	<label for="nk">Maximo karts: </label>
-	<input type="text" name="nk" placeholder="Enter max karts" required><br/>
+	<label for="nk">Minimo karts: </label>
+	<input type="text" name="nk" placeholder="Enter min karts" required><br/>
 	<label for="diff">Dificultad: </label>
 	<input type="text" name="diff" placeholder="child/family/adult" required><br/>
 	<input type="submit" value="Submit">

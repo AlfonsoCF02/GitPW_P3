@@ -70,6 +70,9 @@ public class asociarKartPistaController extends HttpServlet {
 	    }else if(status==-3) {
 	    	request.getRequestDispatcher("errorAsociar3.jsp").forward(request, response);
 			return;
+	    }else if(status==-5) {
+	    	request.getRequestDispatcher("errorAsociar5.jsp").forward(request, response);
+			return;
 	    }
 	}
 

@@ -52,14 +52,31 @@ public class KartsPistasDAO {
 		while (rs.next()) {
 			count++;
 		}
+		String tipo = null;
+		String dif=null;
 		query = "select * from karts where id=" +"'"+id+"'"; 
 	    rs = (ResultSet) stmt.executeQuery(query);
 	    while (rs.next()) {
 			String val=rs.getString("pista");
+			tipo=rs.getString("tipo");
 			if (val!=null) {
 				return -1;
 			}
 		}
+	    query = a.getSelectPistaByName() +"'"+p.getName()+"'"; 
+	    rs = (ResultSet) stmt.executeQuery(query);
+	    while (rs.next()) {
+	    	dif=rs.getString("dificultad");
+	    }
+	    if(dif.equals("child")) {
+	    	if(tipo.equals("true")) {
+	    		return -5;
+	    	}
+	    }else if(dif.equals("adult")) {
+	    	if(tipo.equals("false")) {
+	    		return -5;
+	    	}
+	    }
 		if(count<p.getMaxkarts()&&t.comprobarKartExistente(k.getId())) {
 			int status=0;
 			PreparedStatement ps=connection.prepareStatement("update karts set pista=? where id=?");
