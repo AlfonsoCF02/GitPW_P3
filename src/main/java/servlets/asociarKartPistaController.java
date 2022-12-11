@@ -45,6 +45,13 @@ public class asociarKartPistaController extends HttpServlet {
 	    GestorPistas gp=new GestorPistas();
 	    int status = 0;
 	    try {
+            Integer.parseInt(kart);
+            
+        } catch (NumberFormatException excepcion) {
+        	request.getRequestDispatcher("errorAsociar4.jsp").forward(request, response);
+			return;
+        }
+	    try {
 			status=gp.asociarKartPista(Integer.parseInt(kart), pista);
 		} catch (NumberFormatException | FileNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block

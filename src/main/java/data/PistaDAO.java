@@ -121,11 +121,11 @@ public class PistaDAO {
 	 * @throws SQLException
 	 */
 	
-	public String pistasLibres(int num, diff tipo) throws SQLException {
+	public ArrayList<String> pistasLibres(int num, diff tipo) throws SQLException {
 		String info="";
 		connection dbConnection = new connection();
 		QuerysProperties a=new QuerysProperties();
-
+		ArrayList<String> pis=new ArrayList<String>();
 		Connection connection = dbConnection.getConnection();
 		String type="'"+tipo+"'";
 		String query = a.getSelectPistaFirst() + "'" +num + "'" + a.getSelectPistaSecond() + type.toString();
@@ -143,13 +143,14 @@ public class PistaDAO {
 			else {
 				disponibilidad="Mantenimiento";
 			}
-			info+=("Nombre: "+nombre+", "+"Estado: "+disponibilidad+", "+"Karts Maximos: "+karts+", "+"Dificultad: "+dificultad+"\n");
+			info=("Nombre: "+nombre+", "+"Estado: "+disponibilidad+", "+"Karts Maximos: "+karts+", "+"Dificultad: "+dificultad+"\n");
+			pis.add(info);
 		}
 		if (stmt != null){ 
 			stmt.close(); 
 		}
 		dbConnection.closeConnection();
-		return info;
+		return pis;
 		
 	}
 	

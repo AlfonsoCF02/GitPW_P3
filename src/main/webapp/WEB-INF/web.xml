@@ -110,5 +110,13 @@
     <servlet-name>listarConcreta</servlet-name>
     <url-pattern>/listarConcreta</url-pattern>
   </servlet-mapping>
+<servlet>
+    <servlet-name>pistasdisponibles</servlet-name>
+    <servlet-class>servlets.pistasDisponiblesController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pistasdisponibles</servlet-name>
+    <url-pattern>/pistasdisponibles</url-pattern>
+  </servlet-mapping>
 
 </web-app>

@@ -86,11 +86,10 @@ public class GestorPistas {
 	 * A method that shows the available tracks
 	 * @throws SQLException 
 	 * */	
-	public String pistasLibres(int num, diff tipo) throws SQLException {
+	public ArrayList<String> pistasLibres(int num, diff tipo) throws SQLException {
 		String info;
 		PistaDAO u = new PistaDAO();
-		info=u.pistasLibres(num, tipo);
-		return info;
+		return u.pistasLibres(num, tipo);
 	}
 	
 	public ArrayList<String> listarPistas() throws SQLException {
