@@ -11,6 +11,6 @@
 </head>
 <body>
 El estado solo puede ser mantenimiento/reservado/disponible<br/>
-<a href="./index.jsp">Volver al inicio</a>
+<a href="${pageContext.request.contextPath}/index.jsp">Volver al inicio</a>
 </body>
 </html>

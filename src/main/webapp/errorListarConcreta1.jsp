@@ -11,6 +11,6 @@
 </head>
 <body>
 Recuerde que la fecha 1 debe ser mas antigua que la fecha 2<br/>
-<a href="./index.jsp">Volver al inicio</a>
+<a href="${pageContext.request.contextPath}/index.jsp">Volver al inicio</a>
 </body>
 </html>

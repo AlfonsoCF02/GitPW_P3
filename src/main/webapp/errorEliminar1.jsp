@@ -11,6 +11,6 @@
 </head>
 <body>
 La fecha de esta reserva no es futura a la fecha actual<br/>
-<a href="./index.jsp">Volver al inicio</a>
+<a href="${pageContext.request.contextPath}/index.jsp">Volver al inicio</a>
 </body>
 </html>

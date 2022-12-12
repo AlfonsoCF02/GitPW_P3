@@ -11,6 +11,6 @@
 </head>
 <body>
 Los valores del campo disponible son true o false, respete los valores porfavor<br/>
-<a href="./index.jsp">Volver al inicio</a>
+<a href="${pageContext.request.contextPath}/index.jsp">Volver al inicio</a>
 </body>
 </html>

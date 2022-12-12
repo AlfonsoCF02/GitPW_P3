@@ -11,6 +11,6 @@
 </head>
 <body>
 El numero de karts debe ser numerico y mayor a 0<br/>
-<a href="./index.jsp">Volver al inicio</a>
+<a href="${pageContext.request.contextPath}/index.jsp">Volver al inicio</a>
 </body>
 </html>

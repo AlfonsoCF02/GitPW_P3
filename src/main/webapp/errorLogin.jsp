@@ -13,7 +13,6 @@
 
 Los datos del usuario son incorrectos, vuelva a intentarlo!
 Le recordamos que no debe introducir espacios o sera erroneo el acceso!
-<a href="../../index.jsp">Volver al inicio</a>
-
+<a href="${pageContext.request.contextPath}/index.jsp">Volver al inicio</a>
 </body>
 </html>

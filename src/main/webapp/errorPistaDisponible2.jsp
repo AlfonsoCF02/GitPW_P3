@@ -11,6 +11,6 @@
 </head>
 <body>
 El valor de dificultad solo puede ser child family o adult<br/>
-<a href="./index.jsp">Volver al inicio</a>
+<a href="${pageContext.request.contextPath}/index.jsp">Volver al inicio</a>
 </body>
 </html>

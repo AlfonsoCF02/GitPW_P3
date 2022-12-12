@@ -11,6 +11,6 @@
 </head>
 <body>
 El valor debe ser numerico porfavor<br/>
-<a href="./index.jsp">Volver al inicio</a>
+<a href="${pageContext.request.contextPath}/index.jsp">Volver al inicio</a>
 </body>
 </html>

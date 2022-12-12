@@ -11,6 +11,6 @@
 </head>
 <body>
 La reserva no puede eliminarse por integridad de la base de datos<br/>
-<a href="./index.jsp">Volver al inicio</a>
+<a href="${pageContext.request.contextPath}/index.jsp">Volver al inicio</a>
 </body>
 </html>
