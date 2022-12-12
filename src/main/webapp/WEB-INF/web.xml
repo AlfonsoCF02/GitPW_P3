@@ -118,5 +118,14 @@
     <servlet-name>pistasdisponibles</servlet-name>
     <url-pattern>/pistasdisponibles</url-pattern>
   </servlet-mapping>
+<servlet>
+    <servlet-name>altabono</servlet-name>
+    <servlet-class>servlets.altaBonoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>altabono</servlet-name>
+    <url-pattern>/altabono</url-pattern>
+  </servlet-mapping>
+
 
 </web-app>
