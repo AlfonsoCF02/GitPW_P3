@@ -11,8 +11,8 @@
 </head>
 <body>
 
-Los datos del usuario son incorrectos, vuelva a intentarlo!
-Le recordamos que no debe introducir espacios o sera erroneo el acceso!
+Los datos del usuario son incorrectos, vuelva a intentarlo!<br/>
+Le recordamos que no debe introducir espacios o sera erroneo el acceso!<br/>
 <a href="${pageContext.request.contextPath}/index.jsp">Volver al inicio</a>
 </body>
 </html>
