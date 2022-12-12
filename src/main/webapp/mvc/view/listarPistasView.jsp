@@ -11,7 +11,7 @@
 </head>
 <body>
 <%
-if (customerBean != null && !customerBean.getEmail().equals("") && (customerBean.getPrivilegios().toString().equals("user"))) {
+if (customerBean != null && !customerBean.getEmail().equals("") && (customerBean.getPrivilegios().toString().equals("admin"))) {
 
 	ArrayList<String> datos = (ArrayList<String>) request.getAttribute("listado");
 	int i=0;
@@ -29,7 +29,7 @@ if (customerBean != null && !customerBean.getEmail().equals("") && (customerBean
 %>
 <a href="./index.jsp">Inicio</a><%
 } else{%>
-	Debe registrarse para acceder a la funcionalidad y ser usuario-cliente
+	Debe registrarse para acceder a la funcionalidad y ser admin
 	<a href="${pageContext.request.contextPath}/index.jsp">volver al indice</a><br/><%
 }
 %>

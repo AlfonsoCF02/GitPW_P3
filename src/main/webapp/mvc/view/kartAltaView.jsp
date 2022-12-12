@@ -11,7 +11,7 @@
 <body>
 <%
 if (customerBean != null && !customerBean.getEmail().equals("") && (customerBean.getPrivilegios().toString().equals("admin"))) {%>
-	<form id="formkart" method="post" action="${pageContext.request.contextPath}/kartpista" onSubmit="return Validar('tipo','estado')">
+	<form id="formkart" method="post" action="${pageContext.request.contextPath}/kartAlta" onSubmit="return Validar('tipo','estado')">
 	<label for="tipo">Tipo: </label>
 	<input type="text" id="tipo" name="tipo" placeholder="Enter type false/true" required><br/>
 	<label for="estado">Estado: </label>

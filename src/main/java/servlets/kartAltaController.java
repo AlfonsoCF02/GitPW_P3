@@ -43,6 +43,8 @@ public class kartAltaController extends HttpServlet {
 	   String tipo=request.getParameter("tipo");
 	   String estado=request.getParameter("estado");
        kartstat ks;
+	   int s = 0;
+
        boolean b;
 	   if(tipo!=null && !tipo.equals("")){
 		   if(estado.equals(kartstat.disponible.toString())){
@@ -58,10 +60,8 @@ public class kartAltaController extends HttpServlet {
 	    	   b=false;
 	       }
 		   GestorKart gk=new GestorKart();
-		   int s;
 		try {
 			s = gk.crearKart(null, b, ks);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -69,6 +69,9 @@ public class kartAltaController extends HttpServlet {
 		    PrintWriter out=response.getWriter();
 			out.println("Si estas viendo este mensaje es por que algo salio mal, no se pudo completar tu solicitud.");
 		}
+	   }
+	   if(s==0) {
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 	   }
 	}
 }

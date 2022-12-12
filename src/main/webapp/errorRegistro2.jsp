@@ -10,11 +10,7 @@
 <title>ERROR!!</title>
 </head>
 <body>
-Esta intentando asociar a una pista adulta un kart infantil o bien a una pista infantil un kart adulto<br/>
-kart adulto->pista adulta<br/>
-kart infantil->pista infantil<br/>
-Vuelva a intentarlo<br/>
-<br/>
+La fecha de nacimiento debe ser menor que la actual y ademas tiene de ser mayor de edad (18)!<br/>
 <a href="${pageContext.request.contextPath}/index.jsp">Volver al inicio</a>
 </body>
 </html>
