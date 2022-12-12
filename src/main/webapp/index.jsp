@@ -85,6 +85,7 @@ body {
 		<a href="${pageContext.request.contextPath}/listarConcreta">Listar reservas concretas</a><br/>
         <a href="${pageContext.request.contextPath}/pistasdisponibles">Pistas disponibles</a><br/>
         <a href="${pageContext.request.contextPath}/altabono">Alta bono</a><br/>
+        <a href="${pageContext.request.contextPath}/altareserva">Añadir reserva</a><br/>
 	<% }
 	else if(customerBean.getPrivilegios().toString().equals(typeof.admin.toString())){
 		ArrayList<CustomerBean> users=new ArrayList<CustomerBean>();
@@ -123,7 +124,7 @@ body {
 		<a href="${pageContext.request.contextPath}/kartstate">modificar estado kart</a><br/>
 		<a href="${pageContext.request.contextPath}/pistastate">modificar estado pista</a><br/>
 		<a href="${pageContext.request.contextPath}/reservalistar">listar reservas</a><br/>		
-		<a href="${pageContext.request.contextPath}/eliminareserva">Eliminar reserva</a><br/>		
+		<a href="${pageContext.request.contextPath}/eliminareserva">Eliminar reserva</a><br/>				
 	<%}%>
 </body>
 </html>
