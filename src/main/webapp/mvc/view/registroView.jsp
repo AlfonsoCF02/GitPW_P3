@@ -21,7 +21,7 @@ if (customerBean != null && !customerBean.getEmail().equals("")) {
 } else {
 %>
 <%= messageNextPage %><br/><br/>
-<form method="post" onSubmit="return ValidarAnio(document.getElementById('fechN').value)">
+<form method="post" onSubmit="return ValidarAnio('fechN')">
 	<label for="email">Email: </label>
 	<input type="text" name="email" placeholder="Enter email" required><br/>
 	<label for="password">Password: </label>

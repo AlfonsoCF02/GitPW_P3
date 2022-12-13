@@ -7,12 +7,11 @@ function ValidarAnio(fechN)
     if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
         edad--;
     }
-    if(edad >= 18){
-   		alert("Eres mayor de edad :D ");
-   		return true;
-	}else{
-	    alert("Eres menor de edad :( ");
+    if(edad <= 18){
+   		alert("Eres menor de edad :( ");
 	    return false;
+	}else{
+	 	return true;
 	}
 }
 
