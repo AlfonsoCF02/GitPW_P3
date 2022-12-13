@@ -18,7 +18,7 @@ String nextPage = "../../index.jsp";
 String mensajeNextPage = "";
 String mensajeError="";
 
-
+if(customerBean != null && !customerBean.getEmail().equals("")){
 	String nameUser = request.getParameter("nombre");
 	String apellidosUser = request.getParameter("apellidos");
 	String passwordUser = request.getParameter("password");
@@ -28,21 +28,25 @@ String mensajeError="";
 		Date birth = new Date();			
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		birth = format.parse(fechNUser);
-		//Se accede a bases de datos para obtener el usuario
+		Date now=new Date();
 	    GestorUsuario g=new GestorUsuario();
-		//Hacer que te devuelva un dao con el usuario
-		//new UsuarioDTO( "name", "String surname", new Date(), "aaa","String password",typeof.user)
 		UsuarioDTO u=new UsuarioDTO();
 		UserDAO ud=new UserDAO();
-		u=ud.obtenerUser(customerBean.getEmail());
-		g.modificarUsuario(nameUser, apellidosUser, customerBean.getEmail(), birth, u.getFirstBooking(), customerBean.getPrivilegios(), passwordUser);
-			%>
-			<jsp:setProperty  name="customerBean" property="password" value="<%=passwordUser%>"/>
-			<jsp:setProperty  name="customerBean" property="nombre" value="<%=nameUser%>"/>
-			<jsp:setProperty  name="customerBean" property="apellidos" value="<%=apellidosUser%>"/>
-			<jsp:setProperty  name="customerBean" property="fechN" value="<%=birth%>"/>
-			<%		
-			nextPage = "../../index.jsp";	
+		if((now.getYear()-birth.getYear())>=18){
+			u=ud.obtenerUser(customerBean.getEmail());
+			g.modificarUsuario(nameUser, apellidosUser, customerBean.getEmail(), birth, u.getFirstBooking(), customerBean.getPrivilegios(), passwordUser);
+				%>
+				<jsp:setProperty  name="customerBean" property="password" value="<%=passwordUser%>"/>
+				<jsp:setProperty  name="customerBean" property="nombre" value="<%=nameUser%>"/>
+				<jsp:setProperty  name="customerBean" property="apellidos" value="<%=apellidosUser%>"/>
+				<jsp:setProperty  name="customerBean" property="fechN" value="<%=birth%>"/>
+				<%		
+				nextPage = "../../index.jsp";
+		}else{
+			nextPage = "../../errorRegistro2.jsp";
+		}
+			
+}
 %>
 <jsp:forward page="<%=nextPage%>">
 	<jsp:param value="<%=mensajeNextPage%>" name="message"/>

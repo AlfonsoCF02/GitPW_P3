@@ -19,7 +19,7 @@ if (customerBean == null || customerBean.getEmail().equals("")) {
 	String passwordUser = request.getParameter("password");
 	String nomUser = request.getParameter("nombre");
 	String apellidosUser = request.getParameter("apellidos");
-	String fechUser = request.getParameter("fechanacimiento");
+	String fechUser = request.getParameter("fecha");
 	String privilegios=request.getParameter("privilegios");
 	typeof priv=null;
 
@@ -32,19 +32,21 @@ if (customerBean == null || customerBean.getEmail().equals("")) {
 		}
 	}
 	Date birth = new Date();
+	Date now=new Date();
 	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-	if(fechUser!=null){
-		
-		birth = format.parse(fechUser);	   
-	}
+	
 	if (emailUser != null) {
 		GestorUsuario g=new GestorUsuario();
 		Date firstB=new Date();
+		if(fechUser!=null){
+			birth = format.parse(fechUser);	 		
+		}
 			if(g.comprobarUsuarioExistente(emailUser)==true){			
 					nextPage = "../../errorRegistro.jsp";
 					mensajeNextPage = "El usuario esta registrado";	
+			}else if((now.getYear()-birth.getYear())<18){
+				nextPage = "../../errorRegistro2.jsp";
 			}else{
-		
 				%>
 				<jsp:setProperty  name="customerBean" property="email" value="<%=emailUser%>"/>
 				<jsp:setProperty  name="customerBean" property="password" value="<%=passwordUser%>"/>
