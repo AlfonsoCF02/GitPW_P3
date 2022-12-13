@@ -1,17 +1,20 @@
 function ValidarAnio(fechN)
   {
-   var hoy = new Date();
+    alert("validando fecha ");
+    var hoy = new Date();
+    fechN=document.getElementById(fechN);
     var cumpleanos = new Date(fechN);
     var edad = hoy.getFullYear() - cumpleanos.getFullYear();
     var m = hoy.getMonth() - cumpleanos.getMonth();
     if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
         edad--;
     }
-    if(edad <= 18){
-   		alert("Eres menor de edad :( ");
-	    return false;
+    alert("validando fecha ");
+    if(edad >= 18){
+   		return true;
 	}else{
-	 	return true;
+		alert("Eres menor de edad :( ");
+	    return false;
 	}
 }
 
