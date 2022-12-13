@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src = "../../js/checkAge.js"></script>
 <meta charset="UTF-8">
 <title>Registro</title>
 </head>
@@ -20,7 +21,7 @@ if (customerBean != null && !customerBean.getEmail().equals("")) {
 } else {
 %>
 <%= messageNextPage %><br/><br/>
-<form method="post">
+<form method="post" onSubmit="return ValidarAnio(document.getElementById('fechN').value)">
 	<label for="email">Email: </label>
 	<input type="text" name="email" placeholder="Enter email" required><br/>
 	<label for="password">Password: </label>
