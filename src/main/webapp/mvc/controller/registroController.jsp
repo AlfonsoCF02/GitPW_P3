@@ -32,27 +32,15 @@ if (customerBean == null || customerBean.getEmail().equals("")) {
 		}
 	}
 	Date birth = new Date();
+	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 	if(fechUser!=null){
 		
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		birth = format.parse(fechUser);
-		
+		birth = format.parse(fechUser);	   
 	}
-	//Caso 2.a: Hay parámetros -> procede de la VISTA
 	if (emailUser != null) {
 		GestorUsuario g=new GestorUsuario();
-		SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd");
-	    Date parsed = format2.parse("fechUser");
-	    java.sql.Date fechnac = new java.sql.Date(parsed.getTime());
-		java.sql.Date dateres=new java.sql.Date(Calendar.getInstance().getTime().getTime());
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(Calendar.getInstance().getTime()); 
-		calendar.add(calendar.YEAR, -18);
-		java.sql.Date date18=new java.sql.Date(calendar.getInstance().getTime().getTime());
-			Date firstB=new Date();
-			if(fechnac.after(dateres) || fechnac.after(date18)){
-				nextPage="../../errorRegistro2.jsp";
-			}else if(g.comprobarUsuarioExistente(emailUser)==true){			
+		Date firstB=new Date();
+			if(g.comprobarUsuarioExistente(emailUser)==true){			
 					nextPage = "../../errorRegistro.jsp";
 					mensajeNextPage = "El usuario esta registrado";	
 			}else{
@@ -70,9 +58,11 @@ if (customerBean == null || customerBean.getEmail().equals("")) {
 				mensajeNextPage = "El usuario se ha registrado correctamente";
 			}
 	//Caso 2.b -> se debe ir a la vista por primera vez
-	} else {
-		nextPage = "../view/registroView.jsp";		
-	}
+} else {
+	nextPage = "../view/registroView.jsp";		
+}
+	//Caso 2.a: Hay parámetros -> procede de la VISTA
+	
 }
 %>
 <jsp:forward page="<%=nextPage%>">
