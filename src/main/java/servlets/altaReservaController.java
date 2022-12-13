@@ -47,6 +47,11 @@ public class altaReservaController extends HttpServlet {
 			String fecha_str=request.getParameter("fecha");
 			SimpleDateFormat formatFecha = new SimpleDateFormat("yyyy-MM-dd");
 			Date fecha = formatFecha.parse(fecha_str);
+			Date now=new Date();
+			if(fecha.getTime()<now.getTime()) {
+				request.getRequestDispatcher("errorFecha.jsp").forward(request, response);
+				return;
+			}
             java.sql.Date fechares = new java.sql.Date(fecha.getTime());
 			String hora_str=request.getParameter("hora");
 			hora_str+=":00";
