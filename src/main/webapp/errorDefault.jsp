@@ -11,7 +11,9 @@
 </head>
 <body>
 
-Ha ocurrido un error!
+Ha ocurrido un error! <br> <br> 
+
+La traza es la siguiente: <br>
 
 <c:set var="exception" value="${requestScope['javax.servlet.error.exception']}"/>
 <!-- Stack trace -->
