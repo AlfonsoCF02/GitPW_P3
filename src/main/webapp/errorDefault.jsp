@@ -11,15 +11,15 @@
 </head>
 <body>
 
-Ha ocurrido un error!
+Ha ocurrido un error! <br> <br> 
 
-<%
-try{
-}
-catch(Exception e){%>
-	out.println(e.getMessage());
-<%}
-%>
+La traza es la siguiente: <br>
+
+<c:set var="exception" value="${requestScope['javax.servlet.error.exception']}"/>
+<!-- Stack trace -->
+<jsp:scriptlet>
+  exception.printStackTrace(new java.io.PrintWriter(out));
+</jsp:scriptlet>
 
 
 </body>
