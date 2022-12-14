@@ -14,7 +14,7 @@
 <body>
 <%
 if (customerBean != null && !customerBean.getEmail().equals("") && (customerBean.getPrivilegios().toString().equals("user"))) {%>
-	<form method="post" action="${pageContext.request.contextPath}/eliminareservauser">
+	<form method="post" action="${pageContext.request.contextPath}/eliminarreservauser">
 	<label for="reserva">reserva: </label>
 	<input type="text" id="reserva" name="reserva" placeholder="" required><br/>	
 	<input type="hidden" name="email" value=<%=customerBean.getEmail()%>>
