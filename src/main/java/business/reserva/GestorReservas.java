@@ -556,4 +556,11 @@ public class GestorReservas {
 		int status=bdao.altaBono(b);
 		return status;
 	}	
+	
+	public int eliminarReserva(int id,String email) throws SQLException {
+
+		ReservaChildDAO rd = new ReservaChildDAO();
+		return rd.eliminarReservaUsuario(id,email);
+	}
+	
 }

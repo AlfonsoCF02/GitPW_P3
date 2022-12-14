@@ -229,5 +229,28 @@ public abstract class ReservaDAO {
 		return false;
 	}
 	
+	public Integer eliminarReservaUsuario(int nres,String email) throws SQLException {
+		int status=0;
+		QuerysProperties a=new QuerysProperties();
+		if(comprobarReservaExistente(nres)==false) {
+			return -3;
+		}
+		if(esreservafutura(nres)==false) {
+			return -1;
+		}
+		
+		try{
+			connection dbConnection = new connection();
+			Connection connection = dbConnection.getConnection();
+			PreparedStatement ps=connection.prepareStatement("delete from reservas where id=? and email=?");
+			ps.setInt(1,nres);
+			ps.setString(2, email);
+			status=ps.executeUpdate();
+			return 0;
+		}catch(Exception e){
+			return -2;
+
+		}
+	}
 	
 }

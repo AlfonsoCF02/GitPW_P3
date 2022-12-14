@@ -126,7 +126,6 @@
     <servlet-name>altabono</servlet-name>
     <url-pattern>/altabono</url-pattern>
   </servlet-mapping>
-  
 <servlet>
     <servlet-name>altareserva</servlet-name>
     <servlet-class>servlets.altaReservaController</servlet-class>
@@ -134,6 +133,14 @@
   <servlet-mapping>
     <servlet-name>altareserva</servlet-name>
     <url-pattern>/altareserva</url-pattern>
+  </servlet-mapping>
+<servlet>
+    <servlet-name>eliminarreservauser</servlet-name>
+    <servlet-class>servlets.eliminarReservaUserController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>eliminarreservauser</servlet-name>
+    <url-pattern>/eliminarreservauser</url-pattern>
   </servlet-mapping>
 
 
