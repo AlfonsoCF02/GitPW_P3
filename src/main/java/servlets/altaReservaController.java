@@ -61,8 +61,8 @@ public class altaReservaController extends HttpServlet {
 			int duracion=Integer.parseInt(request.getParameter("duracion"));
 			String pista=request.getParameter("pista");
 			int nninios=Integer.parseInt(request.getParameter("nninios"));
-			int nadultos=Integer.parseInt(request.getParameter("nadultos"));
-	
+			int nadultos=Integer.parseInt(request.getParameter("nadultos"));	
+			
 			if(duracion==60) {
 				
 			}else if(duracion==90) {
@@ -75,7 +75,11 @@ public class altaReservaController extends HttpServlet {
 			}
 			GestorReservas gr=new GestorReservas();
 			ModalidadReservaIndividual b = new ModalidadReservaIndividual();
-			gr.reservaIndividual(b, email, horares, fechares, duracion, pista, nninios, nadultos);
+			int res = gr.reservaIndividual(b, email, horares, fechares, duracion, pista, nninios, nadultos);
+			
+			request.setAttribute("res", res);
+			request.getRequestDispatcher("comprobarRI.jsp").forward(request, response);
+			
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}catch(Exception nfe) {
 		    System.out.println(nfe);
