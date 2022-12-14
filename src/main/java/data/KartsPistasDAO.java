@@ -44,7 +44,7 @@ public class KartsPistasDAO {
 		if(!pd.comprobarPistaExistente(p.getName())) {
 			return -3;
 		}
-		String query = "select * from karts where pista=" +nombre; 
+		String query = a.getselectKartOne() +nombre; 
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		int count=0;
@@ -54,7 +54,7 @@ public class KartsPistasDAO {
 		}
 		String tipo = null;
 		String dif=null;
-		query = "select * from karts where id=" +"'"+id+"'"; 
+		query = a.getselectKartTwo() +"'"+id+"'"; 
 	    rs = (ResultSet) stmt.executeQuery(query);
 	    while (rs.next()) {
 			String val=rs.getString("pista");
@@ -79,7 +79,7 @@ public class KartsPistasDAO {
 	    }
 		if(count<p.getMaxkarts()&&t.comprobarKartExistente(k.getId())) {
 			int status=0;
-			PreparedStatement ps=connection.prepareStatement("update karts set pista=? where id=?");
+			PreparedStatement ps=connection.prepareStatement(a.getupdateKartPista());
 			ps.setString(1, p.getName());
 			ps.setInt(2, k.getId());
 			status = ps.executeUpdate();

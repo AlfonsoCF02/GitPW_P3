@@ -49,6 +49,79 @@ public class QuerysProperties {
 	private String selectKartPistasSecond;
 	private String selectConcretaUno;
 	private String selectConcretaDos;
+	private String updateKartState;
+	private String selectKartOne;
+	private String selectKartTwo;
+	private String updateKartPista;
+	private String updatePistaOne;
+	private String selectFromResOne;
+	private String selectFromResTwo;
+	private String selectFromResT;
+	private String selectResEmail;
+	private String selectResEmailTwo;
+	private String selectDeleteRes;
+	private String selectFromRes;
+	
+	public String getselectFromRes() {
+		cargar_datos();
+		return selectFromRes;
+	}
+	
+	public String getselectDeleteRes() {
+		cargar_datos();
+		return selectDeleteRes;
+	}
+	
+	public String getselectResEmailTwo() {
+		cargar_datos();
+		return selectResEmailTwo;
+	}
+	
+	
+	public String getselectResEmail() {
+		cargar_datos();
+		return selectResEmail;
+	}
+	
+	public String getselectFromResT() {
+		cargar_datos();
+		return selectFromResT;
+	}
+	
+	public String getselectFromResTwo() {
+		cargar_datos();
+		return selectFromResTwo;
+	}
+	
+	public String getselectFromResOne() {
+		cargar_datos();
+		return selectFromResOne;
+	}
+	
+	public String getupdatePistaOne() {
+		cargar_datos();
+		return updatePistaOne;
+	}
+	
+	public String getupdateKartPista() {
+		cargar_datos();
+		return updateKartPista;
+	}
+	
+	public String getselectKartTwo() {
+		cargar_datos();
+		return selectKartTwo;
+	}
+	
+	public String getselectKartOne() {
+		cargar_datos();
+		return selectKartOne;
+	}
+	
+	public String getUpdateKartState() {
+		cargar_datos();
+		return updateKartState;
+	}
 	
 	public String getSelectConcretaDos() {
 		cargar_datos();
@@ -267,6 +340,18 @@ public class QuerysProperties {
 			selectKartPistasSecond=prop.getProperty("selectKartPistasSecond");
 			selectConcretaUno=prop.getProperty("selectConcretaUno");
 			selectConcretaDos=prop.getProperty("selectConcretaDos");
+			updateKartState=prop.getProperty("updateKartState");
+			selectKartOne=prop.getProperty("selectKartOne");
+			selectKartTwo=prop.getProperty("selectKartTwo");
+			updateKartPista=prop.getProperty("updateKartPista");
+			updatePistaOne=prop.getProperty("updatePistaOne");
+			selectFromResOne=prop.getProperty("selectFromResOne");
+			selectFromResTwo=prop.getProperty("selectFromResTwo");
+			selectFromResT=prop.getProperty("selectFromResT");
+			selectResEmail=prop.getProperty("selectResEmail");
+			selectResEmailTwo=prop.getProperty("selectResEmailTwo");
+			selectDeleteRes=prop.getProperty("selectDeleteRes");
+			selectFromRes=prop.getProperty("selectFromRes");
 			
 		} catch (FileNotFoundException e) {
 			

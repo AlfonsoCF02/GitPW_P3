@@ -237,7 +237,7 @@ public Integer modificarKartState(KartDTO x) throws SQLException {
 		int status = 0;
 			
 		try {
-			PreparedStatement ps=connection.prepareStatement("update karts set estado=? where id=?");
+			PreparedStatement ps=connection.prepareStatement(a.getUpdateKartState());
 			ps.setString(1,x.getKartstatus().toString());
 			ps.setInt(2, x.getId());
 			status = ps.executeUpdate();

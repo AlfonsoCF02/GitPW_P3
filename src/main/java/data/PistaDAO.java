@@ -237,7 +237,7 @@ public Integer modificarPistaState(PistaDTO x) throws SQLException {
 			return -1;
 		}		
 		int status = 0;
-		PreparedStatement ps=connection.prepareStatement("update pistas set disponible=? where nombre=?");
+		PreparedStatement ps=connection.prepareStatement(a.getupdatePistaOne());
 		ps.setString(1, x.getState().toString());
 		ps.setString(2, x.getName());
 		status = ps.executeUpdate();

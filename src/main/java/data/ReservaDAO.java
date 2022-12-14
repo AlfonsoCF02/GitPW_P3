@@ -75,7 +75,7 @@ public abstract class ReservaDAO {
 		ArrayList<String> res=new ArrayList<String>();
 	    String date2=format.format(fech2);
 		java.sql.Date dateres=new java.sql.Date(Calendar.getInstance().getTime().getTime());
-		String query = "select * from reservas where fecha>" + "'"+stringDate+"'" + " and fecha<"+ "'"+date2+"'" +" and email=" + "'"+name+"'" ; 
+		String query = a.getselectFromResOne() + "'"+stringDate+"'" + a.getselectFromResTwo()+ "'"+date2+"'" + a.getselectFromResT() + "'"+name+"'" ; 
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		while (rs.next()) {
@@ -112,7 +112,7 @@ public abstract class ReservaDAO {
 		Connection connection = dbConnection.getConnection();
 		QuerysProperties a=new QuerysProperties();  
 		String mail="'"+email+"'";
-		String query = "select * from reservas where email = "+mail ; 
+		String query = a.getselectResEmail()+mail ; 
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		while (rs.next()) {
@@ -132,7 +132,7 @@ public abstract class ReservaDAO {
 		String mail="'"+email+"'";
 		java.sql.Date date=new java.sql.Date(Calendar.getInstance().getTime().getTime());
 		String fech="'"+date.toString()+"'";
-		String query = "select * from reservas where email = "+mail+" and fecha>"+ fech ; 
+		String query = a.getselectResEmail()+mail+a.getselectResEmailTwo()+ fech ; 
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		int i=0;
@@ -215,7 +215,7 @@ public abstract class ReservaDAO {
 		QuerysProperties a=new QuerysProperties(); 
 		java.sql.Date date=new java.sql.Date(Calendar.getInstance().getTime().getTime());
 		String fech="'"+date.toString()+"'";
-		String query = "select * from reservas where id= "+"'"+id+"'"+" and fecha>"+ fech ; 
+		String query = a.getselectFromRes()+"'"+id+"'"+a.getselectResEmailTwo()+ fech ; 
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		
@@ -242,7 +242,7 @@ public abstract class ReservaDAO {
 		try{
 			connection dbConnection = new connection();
 			Connection connection = dbConnection.getConnection();
-			PreparedStatement ps=connection.prepareStatement("delete from reservas where id=? and email=?");
+			PreparedStatement ps=connection.prepareStatement(a.getselectDeleteRes());
 			ps.setInt(1,nres);
 			ps.setString(2, email);
 			status=ps.executeUpdate();
