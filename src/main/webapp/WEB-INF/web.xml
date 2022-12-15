@@ -152,4 +152,14 @@
     <url-pattern>/altareservab</url-pattern>
   </servlet-mapping>
 
+<servlet>
+    <servlet-name>modificarreservab</servlet-name>
+    <servlet-class>servlets.modificarReservaBController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>modificarreservab</servlet-name>
+    <url-pattern>/modificarreservab</url-pattern>
+  </servlet-mapping>
+
+
 </web-app>
