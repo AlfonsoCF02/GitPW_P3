@@ -143,5 +143,13 @@
     <url-pattern>/eliminarreservauser</url-pattern>
   </servlet-mapping>
 
+<servlet>
+    <servlet-name>altareservab</servlet-name>
+    <servlet-class>servlets.altaReservaBController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>altareservab</servlet-name>
+    <url-pattern>/altareservab</url-pattern>
+  </servlet-mapping>
 
 </web-app>

@@ -10,7 +10,7 @@
 <title>ERROR!!</title>
 </head>
 <body>
-La fecha debe ser que el usuario sea mayor de edad
+Debe ser mayor de edad para poder registrarse en el sistema.
 <br/>
 <a href="${pageContext.request.contextPath}/index.jsp">Volver al inicio</a>
 </body>

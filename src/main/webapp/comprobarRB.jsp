@@ -19,14 +19,23 @@
 	else if( res == -1 ) {
 		out.write("Error, el usuario introducido no existe\n");
 	}
+	else if( res == -2 ) {
+		out.write("Error, el bono introducido no existe\n");
+	}
+	else if( res == -3 ) {
+		out.write("Error, usted no es el dueño del bono que quiere usar\n");
+	}
+	else if( res == -4 ) {
+		out.write("Error, el bono no es del tipo que de la reserva que quiere realizar\n");
+	}
 	else if( res == -6 ) {
 		out.write("Error, la pista solicitada no esta disponible\n");
 	}
 	else if( res == -7 ) {
-		out.write("Error, el numero de participantes introducido no es valido para la pista que quiere reservar\n");
+		out.write("Error, el tipo de pista y el tipo de bono no son compatibles\n");
 	}
 	else if ( res == -9 ){
-		out.write("Error, el numero de participantes introducido no es valido para la pista que quiere reservar\n");
+		out.write("Error, el numero de participantes introducido no compatible con el tipo de pista que quiere reservar\n");
 	}
 	else {
 		out.write("Error, la reserva no se ha podido realizar, introduzca datos validos\n");

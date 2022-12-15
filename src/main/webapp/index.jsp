@@ -86,6 +86,7 @@ body {
         <a href="${pageContext.request.contextPath}/pistasdisponibles">Pistas disponibles</a><br/>
         <a href="${pageContext.request.contextPath}/altabono">Alta bono</a><br/>
         <a href="${pageContext.request.contextPath}/altareserva">Añadir reserva</a><br/>
+        <a href="${pageContext.request.contextPath}/altareservab">Añadir reserva Bono</a><br/>
         <a href="${pageContext.request.contextPath}/eliminarreservauser">Eliminar reserva</a><br/>
 	<% }
 	else if(customerBean.getPrivilegios().toString().equals(typeof.admin.toString())){
