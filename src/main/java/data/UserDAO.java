@@ -160,7 +160,7 @@ public class UserDAO {
 		Connection connection = dbConnection.getConnection();
 		int flag=0;
 		String mail="'"+email+"'";
-		String query = "select * from usuarios where email = " + mail; 
+		String query = a.getSelectUserByEmail()+ mail; 
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
 		if(rs.next()==true) {
