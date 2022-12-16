@@ -3,6 +3,7 @@ package servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +35,15 @@ public class pistaStateController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		GestorPistas gp = new GestorPistas();
+		ArrayList<String> pistas=new ArrayList<String>();
+		try {
+			pistas=gp.listarPistas();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.setAttribute("pistas", pistas);			
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.getRequestDispatcher("mvc/view/modifyPistaView.jsp").forward(request, response);
 

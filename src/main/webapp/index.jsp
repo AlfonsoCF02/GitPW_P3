@@ -80,9 +80,9 @@
 	</header>
 	<% 
 	if (customerBean == null || customerBean.getEmail()=="") {%>
-	
+	<div id=noRegistrado>
 		Para el acceso a las funcionalidades de nuestro sitio web debe Iniciar Sesión o Registrarse(si es la primera vez que accede al sitio).
-		
+	</div>
 	<%} 
 	else if(customerBean.getPrivilegios().toString().equals(typeof.user.toString())) {
 		java.util.Date fecha = customerBean.getprimres();
@@ -93,8 +93,9 @@
 		if(fechproxres.length()<7){
 			fechproxres="No tiene reserva futura";
 		}%>
-		Bienvenido | <jsp:getProperty name="customerBean" property="email"/> | <%=str_date2 %> | Miembro desde <%=fecha2%>| Proxima reserva: <%=fechproxres%><br/>
-       
+		<div id=bienvenida>
+			Bienvenido | <jsp:getProperty name="customerBean" property="email"/> | <%=str_date2 %> | Miembro desde <%=fecha2%>| Proxima reserva: <%=fechproxres%><br/>
+       	</div>
 	<% }
 	else if(customerBean.getPrivilegios().toString().equals(typeof.admin.toString())){
 		ArrayList<CustomerBean> users=new ArrayList<CustomerBean>();

@@ -101,7 +101,9 @@ footer {
 }
 
 #div_form_registro{
+	margin: 5em;
 	text-align: center;
+	font-size: 1.5em;
 }
 
 #div_form_login{
@@ -171,6 +173,35 @@ footer {
 }
 
 #div_form_modificarKart{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#div_form_modificarPista{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#div_form_modificarPerfil{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#div_form_crearPista{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+#noRegistrado{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#bienvenida{
 	margin: 5em;
 	text-align: center;
 	font-size: 1.5em;
