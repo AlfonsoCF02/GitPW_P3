@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import business.pista.diff;
 import data.BonoDAO;
 
 /**
@@ -30,11 +31,7 @@ public class listarBonoController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		BonoDAO b=new BonoDAO();
-		String mail=(String)request.getAttribute("mail");
-		ArrayList<String> bonos=b.listarBonos(mail);
-		request.setAttribute("listado", bonos);
-		request.getRequestDispatcher("/mvc/view/listarBonoView.jsp").forward(request, response);
+		request.getRequestDispatcher("/mvc/view/listarBonoFormView.jsp").forward(request, response);	
 	}
 
 	/**
@@ -42,7 +39,23 @@ public class listarBonoController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		BonoDAO b=new BonoDAO();
+		String mail=request.getParameter("email");
+		String tipo=request.getParameter("tipo");
+		diff aux;
+		if(tipo.equals(diff.adult.toString())) {
+			aux=diff.adult;
+		}else if(tipo.equals(diff.family.toString())) {
+			aux=diff.family;
+		}else if(tipo.equals(diff.child.toString())) {
+			aux=diff.child;
+		}else {
+			request.getRequestDispatcher("errorPistaDisponible2.jsp").forward(request, response);
+			return;
+		}
+		ArrayList<String> bonos=b.listarBonos(mail,aux.toString());
+		request.setAttribute("listado", bonos);
+		request.getRequestDispatcher("/mvc/view/listarBonoView.jsp").forward(request, response);	
 	}
 
 }

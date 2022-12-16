@@ -292,7 +292,7 @@ public Integer comprobarNUsos(BonoDTO b) throws SQLException {
  * @throws SQLException
  */
 
-public ArrayList<String> listarBonos(String mail){
+public ArrayList<String> listarBonos(String mail,String type){
 	QuerysProperties a=new QuerysProperties();
 	ArrayList<String> b=new ArrayList<String>();
 	try {
@@ -302,7 +302,7 @@ public ArrayList<String> listarBonos(String mail){
 		connection dbConnection = new connection();
 		Connection connection = dbConnection.getConnection();
 		
-		String query = "select * from bonos where email= "+"'"+mail+"'";
+		String query = a.getselectFromBonosEmail()+"'"+mail+"'"+a.getselectFromBonosEmailTwo()+"'"+type+"'";
 		
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
@@ -331,10 +331,9 @@ public ArrayList<String> listarBonos(String mail){
 	
 	} catch (SQLException e) {
 		System.out.println(e);
-		return b;
 		
 	}
-	
+	return b;
 
 }	
 

@@ -61,6 +61,18 @@ public class QuerysProperties {
 	private String selectResEmailTwo;
 	private String selectDeleteRes;
 	private String selectFromRes;
+	private String selectFromBonosEmail;
+	private String selectFromBonosEmailTwo;
+	
+	public String getselectFromBonosEmailTwo() {
+		cargar_datos();
+		return selectFromBonosEmailTwo;
+	}
+	
+	public String getselectFromBonosEmail() {
+		cargar_datos();
+		return selectFromBonosEmail;
+	}
 	
 	public String getselectFromRes() {
 		cargar_datos();
@@ -352,6 +364,8 @@ public class QuerysProperties {
 			selectResEmailTwo=prop.getProperty("selectResEmailTwo");
 			selectDeleteRes=prop.getProperty("selectDeleteRes");
 			selectFromRes=prop.getProperty("selectFromRes");
+			selectFromBonosEmail=prop.getProperty("selectFromBonosEmail");
+			selectFromBonosEmailTwo=prop.getProperty("selectFromBonosEmailTwo");
 			
 		} catch (FileNotFoundException e) {
 			
