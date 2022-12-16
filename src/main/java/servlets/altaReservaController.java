@@ -71,7 +71,7 @@ public class altaReservaController extends HttpServlet {
 			Date hora = formatHora.parse(hora_str);
 			java.sql.Date horares = new java.sql.Date(hora.getTime());
 			int duracion=Integer.parseInt(request.getParameter("duracion"));
-			String pista=request.getParameter("pista");
+			String pista=request.getParameter("nombrePista");
 			int nninios=Integer.parseInt(request.getParameter("nninios"));
 			int nadultos=Integer.parseInt(request.getParameter("nadultos"));	
 			
