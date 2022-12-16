@@ -49,8 +49,21 @@ a:hover{
 	top:0px;
 }
 
-.table {
-  table-layout: fixed;
-  width: 100%;
+table {
+  table-layout: auto;
   border-collapse: collapse;
+}
+
+th{
+	background-color: #84DEB2;
+	text-align: center;
+}
+
+th,td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+tr:nth-child(2n+1){
+	background-color: #CAFFE7;
 }
