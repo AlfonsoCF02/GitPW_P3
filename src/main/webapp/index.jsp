@@ -77,6 +77,7 @@ body {
 		String fecha2 = fecha1.toString();
 		ReservaChildDAO rcd=new ReservaChildDAO();
 		String fechproxres=rcd.obtenerProxReserva(customerBean.getEmail());
+		request.setAttribute("mail", customerBean.getEmail());
 		if(fechproxres.length()<7){
 			fechproxres="No tiene reserva futura";
 		}%>
@@ -90,6 +91,7 @@ body {
         <a href="${pageContext.request.contextPath}/eliminarreservauser">Eliminar reserva</a><br/>
         <a href="${pageContext.request.contextPath}/modificarreserva">Modificar Reserva Individual</a><br/>
         <a href="${pageContext.request.contextPath}/modificarreservab">Modificar Reserva Bono</a><br/>
+        <a href="${pageContext.request.contextPath}/listarbono">Listar bono</a><br/>        
 	<% }
 	else if(customerBean.getPrivilegios().toString().equals(typeof.admin.toString())){
 		ArrayList<CustomerBean> users=new ArrayList<CustomerBean>();

@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 
 import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
@@ -291,9 +292,9 @@ public Integer comprobarNUsos(BonoDTO b) throws SQLException {
  * @throws SQLException
  */
 
-public String listarBonos(){
+public ArrayList<String> listarBonos(String mail){
 	QuerysProperties a=new QuerysProperties();
-
+	ArrayList<String> b=new ArrayList<String>();
 	try {
 		
 		String info = "";
@@ -301,7 +302,7 @@ public String listarBonos(){
 		connection dbConnection = new connection();
 		Connection connection = dbConnection.getConnection();
 		
-		String query = a.getSelectAllBonos();
+		String query = "select * from bonos where email= "+"'"+mail+"'";
 		
 		Statement stmt = connection.createStatement();
 		ResultSet rs = (ResultSet) stmt.executeQuery(query);
@@ -314,9 +315,10 @@ public String listarBonos(){
 			java.sql.Date pr = rs.getDate("primres");
 			java.sql.Date cad = rs.getDate("caducidad");
 
-			info += ("IDBono: " + nbono + " " + "EmailPropietario: " + email + " " + "Tipo: " + tipo +
+			info = ("IDBono: " + nbono + " " + "EmailPropietario: " + email + " " + "Tipo: " + tipo +
 						" " + "UsosRestantes: " + restantes + " " + " PrimeraReserva: " + pr +
 						" Caducidad: " + cad + "\n");
+			b.add(info);
 		}
 		
 		if (stmt != null){ 
@@ -325,11 +327,11 @@ public String listarBonos(){
 		
 		dbConnection.closeConnection();
 		
-		return info;
+		return b;
 	
 	} catch (SQLException e) {
 		System.out.println(e);
-		return "";
+		return b;
 		
 	}
 	

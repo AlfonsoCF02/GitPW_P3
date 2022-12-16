@@ -169,5 +169,13 @@
     <servlet-name>modificarreserva</servlet-name>
     <url-pattern>/modificarreserva</url-pattern>
   </servlet-mapping>
+<servlet>
+    <servlet-name>listarbono</servlet-name>
+    <servlet-class>servlets.listarBonoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listarbono</servlet-name>
+    <url-pattern>/listarbono</url-pattern>
+  </servlet-mapping>
 
 </web-app>
