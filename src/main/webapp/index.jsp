@@ -94,15 +94,7 @@
 			fechproxres="No tiene reserva futura";
 		}%>
 		Bienvenido | <jsp:getProperty name="customerBean" property="email"/> | <%=str_date2 %> | Miembro desde <%=fecha2%>| Proxima reserva: <%=fechproxres%><br/>
-		<a href="${pageContext.request.contextPath}/listarConcreta">Listar reservas concretas</a><br/>
-        <a href="${pageContext.request.contextPath}/pistasdisponibles">Pistas disponibles</a><br/>
-        <a href="${pageContext.request.contextPath}/altabono">Alta bono</a><br/>
-        <a href="${pageContext.request.contextPath}/altareserva">Añadir reserva</a><br/>
-        <a href="${pageContext.request.contextPath}/altareservab">Añadir reserva Bono</a><br/>
-        <a href="${pageContext.request.contextPath}/eliminarreservauser">Eliminar reserva</a><br/>
-		<a href="${pageContext.request.contextPath}/modificarreserva">Modificar Reserva Individual</a><br/>
-        <a href="${pageContext.request.contextPath}/modificarreservab">Modificar Reserva Bono</a><br/>
-        <a href="${pageContext.request.contextPath}/listarbono">Listar bono</a><br/>         
+       
 	<% }
 	else if(customerBean.getPrivilegios().toString().equals(typeof.admin.toString())){
 		ArrayList<CustomerBean> users=new ArrayList<CustomerBean>();
@@ -130,18 +122,7 @@
 		    <td><%=nres%></td>		    	    
 		  </tr>
 		  <%i++;} %>
-		</table>
-		SOY ADMIN<br/>
-		<br/>
-		<a href="<%=request.getContextPath()%>/mvc/view/kartAltaView.jsp">Alta kart</a><br/>
-		<a href="${pageContext.request.contextPath}/kartListar">Listar karts</a><br/>
-		<a href="${pageContext.request.contextPath}/pistaAlta">Crear pista</a><br/>
-		<a href="${pageContext.request.contextPath}/pistaListar">Listar pistas</a><br/>
-		<a href="${pageContext.request.contextPath}/kartpista">Asociar kart-pista</a><br/>
-		<a href="${pageContext.request.contextPath}/kartstate">modificar estado kart</a><br/>
-		<a href="${pageContext.request.contextPath}/pistastate">modificar estado pista</a><br/>
-		<a href="${pageContext.request.contextPath}/reservalistar">listar reservas</a><br/>		
-		<a href="${pageContext.request.contextPath}/eliminareserva">Eliminar reserva</a><br/>				
+		</table>				
 	<%}%>
 	<footer>
 	<%if (customerBean == null || customerBean.getEmail()=="") {%>

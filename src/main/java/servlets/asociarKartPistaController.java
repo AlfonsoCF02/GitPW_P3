@@ -3,6 +3,7 @@ package servlets;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import business.pista.GestorPistas;
+import data.KartDAO;
 
 /**
  * Servlet implementation class asociarKartPistaController
@@ -31,6 +33,25 @@ public class asociarKartPistaController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		KartDAO kd = new KartDAO();
+		ArrayList<String> karts=new ArrayList<String>();
+		try {
+			karts=kd.listarKarts();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		GestorPistas gp = new GestorPistas();
+		ArrayList<String> pistas=new ArrayList<String>();
+		try {
+			pistas=gp.listarPistas();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.setAttribute("pistas", pistas);		
+		request.setAttribute("karts", karts);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.getRequestDispatcher("mvc/view/asociarKartPistaView.jsp").forward(request, response);
 	}

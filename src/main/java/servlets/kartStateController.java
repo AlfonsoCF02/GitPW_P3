@@ -3,6 +3,7 @@ package servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import business.kart.GestorKart;
 import business.kart.kartstat;
 import business.pista.GestorPistas;
+import data.KartDAO;
 
 /**
  * Servlet implementation class kartStateController
@@ -27,12 +29,22 @@ public class kartStateController extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		KartDAO kd = new KartDAO();
+		ArrayList<String> karts=new ArrayList<String>();
+		try {
+			karts=kd.listarKarts();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.setAttribute("karts", karts);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.getRequestDispatcher("mvc/view/modifyKartView.jsp").forward(request, response);
 	}

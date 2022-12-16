@@ -122,6 +122,60 @@ footer {
 	font-size: 1.5em;
 }
 
+#div_form_altaRes{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#div_form_elimRes{
+	margin: 1em;
+	text-align: center;
+	font-size: 1em;
+}
+
+#div_form_altaKart{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#div_form_listarBono{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#div_form_listarPistas{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#div_form_listarResCon{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#div_form_modificarResB{
+	margin: 5em;
+	text-align: center;
+	font-size: 1em;
+}
+
+#div_form_modificarRes{
+	margin: 5em;
+	text-align: center;
+	font-size: 1em;
+}
+
+#div_form_modificarKart{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
 .profile_image{
 	height:1.2em;
 	width: 1.2em;
