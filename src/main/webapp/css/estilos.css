@@ -67,3 +67,36 @@ th,td {
 tr:nth-child(2n+1){
 	background-color: #CAFFE7;
 }
+
+footer {
+  background-color: #84DEB2;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  color: white;
+  text-align: center;
+}
+
+.footer_user {
+	width: 33%;
+	float: left;
+}
+
+.footer_admin {
+	width: 20%;
+	float: left;
+}
+
+.footer_first {
+	width: 20%;
+	float: left;
+}
+
+.formulario{
+	
+}
+
+#div_form_registro{
+	text-align: center;
+}

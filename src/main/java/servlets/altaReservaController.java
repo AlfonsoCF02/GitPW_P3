@@ -1,15 +1,18 @@
 package servlets;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.*;
 import java.text.SimpleDateFormat;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import business.pista.GestorPistas;
 import business.reserva.GestorReservas;
 import business.reserva.ModalidadReservaIndividual;
 
@@ -32,6 +35,15 @@ public class altaReservaController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		GestorPistas gp = new GestorPistas();
+		ArrayList<String> pistas=new ArrayList<String>();
+		try {
+			pistas=gp.listarPistas();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.setAttribute("pistas", pistas);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.getRequestDispatcher("mvc/view/altaReservaView.jsp").forward(request, response);
 
@@ -81,6 +93,7 @@ public class altaReservaController extends HttpServlet {
 			request.getRequestDispatcher("comprobarRI.jsp").forward(request, response);
 			
 			request.getRequestDispatcher("index.jsp").forward(request, response);
+
 		}catch(Exception nfe) {
 		    System.out.println(nfe);
 		}
