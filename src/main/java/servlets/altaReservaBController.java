@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.*;
 import java.text.SimpleDateFormat;
 
@@ -10,9 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import business.pista.GestorPistas;
+import business.pista.diff;
 import business.reserva.GestorReservas;
 import business.reserva.ModalidadReservaBono;
 import business.reserva.ModalidadReservaIndividual;
+import data.BonoDAO;
 
 /**
  * Servlet implementation class altaBonoController
@@ -33,6 +37,27 @@ public class altaReservaBController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		GestorPistas gp = new GestorPistas();
+		ArrayList<String> pistas=new ArrayList<String>();
+		try {
+			pistas=gp.listarPistas();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		BonoDAO b=new BonoDAO();
+		String mail=request.getParameter("email");
+		diff tipo1 = diff.child;
+		diff tipo2 = diff.adult;
+		diff tipo3 = diff.family;
+		ArrayList<String> bonosC=b.listarBonos(mail, tipo1.toString());
+		ArrayList<String> bonosA=b.listarBonos(mail, tipo2.toString());
+		ArrayList<String> bonosF=b.listarBonos(mail, tipo3.toString());
+		request.setAttribute("bonosC", bonosC);
+		request.setAttribute("bonosA", bonosA);
+		request.setAttribute("bonosF", bonosF);
+		request.setAttribute("pistas", pistas);		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.getRequestDispatcher("mvc/view/altaReservaBView.jsp").forward(request, response);
 

@@ -32,22 +32,49 @@
 				%>
 				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/controller/loginController.jsp">Iniciar Sesion</a></li>
 				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/controller/registroController.jsp">Registrarse</a></li>
-				<li id="menu" class="nav_li">MENU
-					<ul>
-						<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/controller/loginController.jsp">Iniciar Sesion</a></li>
-						<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/controller/registroController.jsp">Registrarse</a></li>
-					</ul>
-				</li>
 				<% 
 				} else { %>
-				<li id="nav_sesion" class="nav_li"><%String nombre=customerBean.getNombre().toString();%><%=nombre%></li>
+				<%if(customerBean.getPrivilegios().toString().equals(typeof.user.toString())){%>
+				<li id="menu" class="nav_li">MENU
+					<ul>
+						<li id="nav_sesion" class="nav_li"><a href="${pageContext.request.contextPath}/listarConcreta">Listar reservas concretas</a><br/></li>
+				        <li id="nav_sesion" class="nav_li"><a href="${pageContext.request.contextPath}/pistasdisponibles">Pistas disponibles</a></li>
+				        <li id="nav_sesion" class="nav_li"><a href="${pageContext.request.contextPath}/altabono">Alta bono</a></li>
+				        <li id="nav_sesion" class="nav_li"><a href="${pageContext.request.contextPath}/altareserva">Añadir reserva</a></li>
+				        <li id="nav_sesion" class="nav_li"><a href="${pageContext.request.contextPath}/altareservab">Añadir reserva Bono</a></li>
+				        <li id="nav_sesion" class="nav_li"><a href="${pageContext.request.contextPath}/eliminarreservauser">Eliminar reserva</a></li>
+						<li id="nav_sesion" class="nav_li"><a href="${pageContext.request.contextPath}/modificarreserva">Modificar Reserva Individual</a></li>
+				        <li id="nav_sesion" class="nav_li"><a href="${pageContext.request.contextPath}/modificarreservab">Modificar Reserva Bono</a></li>
+				        <li id="nav_sesion" class="nav_li"><a href="${pageContext.request.contextPath}/listarbono">Listar bono</a></li>
+					</ul>
+				</li>
+				<li id="profile" class="nav_li"><img class=profile_image src="<%=request.getContextPath()%>/images/profile_icon.ico">
+					<ul>
 				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/controller/logoutController.jsp">Desconectar</a></li>
 				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/view/modifyView.jsp">Modificar datos</a></li>
-				<%if(customerBean.getPrivilegios().toString().equals(typeof.user.toString())){//user
-					
-					}else{//admin
-					}				
-				} %>
+					</ul>
+				</li>				
+				<%}else{%>
+				<li id="menu" class="nav_li">MENU
+					<ul>
+						<li class="nav_li"><a href="<%=request.getContextPath()%>/mvc/view/kartAltaView.jsp">Alta kart</a>
+						<li class="nav_li"><a href="${pageContext.request.contextPath}/kartListar">Listar karts</a>
+						<li class="nav_li"><a href="${pageContext.request.contextPath}/pistaAlta">Crear pista</a>
+						<li class="nav_li"><a href="${pageContext.request.contextPath}/pistaListar">Listar pistas</a>
+						<li class="nav_li"><a href="${pageContext.request.contextPath}/kartpista">Asociar kart-pista</a>
+						<li class="nav_li"><a href="${pageContext.request.contextPath}/kartstate">Modificar estado kart</a>
+						<li class="nav_li"><a href="${pageContext.request.contextPath}/pistastate">Modificar estado pista</a>
+						<li class="nav_li"><a href="${pageContext.request.contextPath}/reservalistar">Listar reservas</a>
+						<li class="nav_li"><a href="${pageContext.request.contextPath}/eliminareserva">Eliminar reserva</a>
+					</ul>
+				</li>
+				<li id="profile" class="nav_li"><img class=profile_image src="<%=request.getContextPath()%>/images/profile_icon.ico">
+					<ul>
+				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/controller/logoutController.jsp">Desconectar</a></li>
+				<li id="nav_sesion" class="nav_li"><a href="<%=request.getContextPath()%>/mvc/view/modifyView.jsp">Modificar datos</a></li>
+					</ul>
+				</li>							
+				<%}} %>
 			</ul>
 		</nav>
 	</header>
@@ -126,13 +153,16 @@
 		<div class=footer_user>
 			<a href="${pageContext.request.contextPath}/listarConcreta">Listar reservas concretas</a><br/>
 	        <a href="${pageContext.request.contextPath}/pistasdisponibles">Pistas disponibles</a><br/>
+	        <a href="${pageContext.request.contextPath}/listarbono">Listar bono</a><br>
 		</div>
 		<div class=footer_user>
 	        <a href="${pageContext.request.contextPath}/altabono">Alta bono</a><br/>
-	        <a href="${pageContext.request.contextPath}/altareservab">Añadir reserva Bono</a><br/>	        			
+	        <a href="${pageContext.request.contextPath}/altareservab">Añadir reserva Bono</a><br/>
+	        <a href="${pageContext.request.contextPath}/modificarreservab">Modificar Reserva Bono</a><br>	        			
 		</div>
 		<div class=footer_user>
 	        <a href="${pageContext.request.contextPath}/altareserva">Añadir reserva</a><br/>
+	        <a href="${pageContext.request.contextPath}/modificarreserva">Modificar Reserva Individual</a><br>
 	        <a href="${pageContext.request.contextPath}/eliminarreservauser">Eliminar reserva</a><br/>		
 		</div>
 			        

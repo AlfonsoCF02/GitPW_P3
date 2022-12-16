@@ -34,6 +34,7 @@ a:hover{
 .nav li ul {
 	display:none;
 	position:absolute;
+	background-color: #84DEB2;
 }
 
 .nav li:hover > ul {
@@ -42,11 +43,13 @@ a:hover{
 
 .nav li ul li {
 	position:under;
+	background-color: #84DEB2;
 }
 
 .nav li ul li ul {
 	right:0px;
 	top:0px;
+	background-color: #84DEB2;
 }
 
 table {
@@ -70,7 +73,7 @@ tr:nth-child(2n+1){
 
 footer {
   background-color: #84DEB2;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: auto;
@@ -94,9 +97,32 @@ footer {
 }
 
 .formulario{
-	
+    width: auto;
 }
 
 #div_form_registro{
 	text-align: center;
+}
+
+#div_form_login{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#div_form_altaBono{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#div_form_altaResB{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.profile_image{
+	height:1.2em;
+	width: 1.2em;
 }
