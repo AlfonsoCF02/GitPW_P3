@@ -67,13 +67,17 @@ FOREIGN KEY (nbono) REFERENCES bonos(nbono)
 insert into usuarios
 values ('alfonso@gmail.com', 'Alfonso', 'Cabezas Fernandez', '2002/10/10', '2022/11/10', 'alfonso', 'admin');
 insert into usuarios
-values ('mari32@gmail.com', 'Maria', 'Dolores Delano', '1975/12/06', '1923/07/12', 'alfonso', 'user');
+values ('mari32@gmail.com', 'Maria', 'Dolores Castillo', '1975/12/06', '1923/07/12', 'password', 'user');
 insert into usuarios
 values ('alfonsodlt@gmail.com', 'Alfonso', 'de la Torre', '1953/06/24', '1934/10/12', 'alfonso', 'admin');
 insert into usuarios
-values ('eduardo@gmail.com', 'Eduardo', 'Martines Rojo', '1912/07/12', '1970/09/22', 'alfonso', 'user');
+values ('eduardo@gmail.com', 'Eduardo', 'Martines Rojo', '1912/07/12', '1970/09/22', 'password', 'user');
 insert into usuarios
-values ('apaco@gmail.com', 'Paco', 'C�rdoba Fernandez', '1987/11/09', '1934/10/12', 'alfonso', 'user');
+values ('apaco@gmail.com', 'Paco', 'Cordoba Fernandez', '1987/11/09', '1934/10/12', 'password', 'user');
+insert into usuarios
+values ('cliente@uco.es', 'Juan', 'Cabezas Fernandez', '1987/11/09', '2022/10/12', 'cliente', 'user');
+insert into usuarios
+values ('admin@uco.es', 'Pedro', 'Cabezas Fernandez', '1987/11/09', '2022/10/12', 'admin', 'admin');
 
     -- Pistas default
 
@@ -173,6 +177,6 @@ values(NULL, 'false', 'mantenimiento','Pamplona');
 insert into reservas
 values (null, 'alfonsodlt@gmail.com', 0, 60 , 'Sevilla', null, 3, null, 20, 'class business.reserva.ReservaInfantil', '2023/11/09 10:20');
 insert into reservas
-values (null, 'alfonso@gmail.com', 0, 120 , 'Sevilla', null, 4, 1, 40, 'class business.reserva.ReservaInfantil', '2022/12/12 16:50');
+values (null, 'alfonso@gmail.com', 0, 120 , 'Sevilla', null, 4, 1, 40, 'class business.reserva.ReservaInfantil', '2023/12/12 16:50');
 insert into reservas
 values (null, 'eduardo@gmail.com', 0, 60 , 'Madrid', 3, 3, 4, 20, 'class business.reserva.ReservaFamiliar', '2024/12/12 09:10');
