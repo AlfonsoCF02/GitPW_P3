@@ -94,7 +94,7 @@
 			fechproxres="No tiene reserva futura";
 		}%>
 		<div id=bienvenida>
-			Bienvenido | <jsp:getProperty name="customerBean" property="email"/> | <%=str_date2 %> | Miembro desde <%=fecha2%>| Proxima reserva: <%=fechproxres%><br/>
+			Bienvenido | <jsp:getProperty name="customerBean" property="email"/> | <%=str_date2 %> | Miembro desde <%=fecha2%> | Proxima reserva: <%=fechproxres%><br/>
        	</div>
 	<% }
 	else if(customerBean.getPrivilegios().toString().equals(typeof.admin.toString())){

@@ -86,17 +86,14 @@ if (customerBean != null && !customerBean.getEmail().equals("") && (customerBean
 			</label>
 			<select id="reserva" name="reserva">
 				<%
-				String email="";
 				ArrayList<String> reservas = (ArrayList<String>) request.getAttribute("reservas");
 				for(int i=0; i<reservas.size(); i++){
 					String reserva = reservas.get(i);
 					String[] parts1 = reserva.split(" ");
-					email=parts1[3];
 					%>
 					<option value="<%=parts1[1]%>"><%=reserva%></option>
 				<%}%>
 			</select>
-			<input type="hidden" name="email" value=<%=email%>><br><br><br>
 			<input type="submit" value="Eliminar">
 		</form>
 	</div>
