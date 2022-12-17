@@ -80,16 +80,18 @@
 <%
 if (customerBean != null && !customerBean.getEmail().equals("") && (customerBean.getPrivilegios().toString().equals("admin"))) {%>
 	<div id=div_form_elimRes>	
-		<form method="post" action="${pageContext.request.contextPath}/eliminarreservauser">
+		<form method="post" action="${pageContext.request.contextPath}/eliminareserva">
 			<label for="reserva">
 				<span>Reserva</span>
 			</label>
 			<select id="reserva" name="reserva">
 				<%
+				String email="";
 				ArrayList<String> reservas = (ArrayList<String>) request.getAttribute("reservas");
 				for(int i=0; i<reservas.size(); i++){
 					String reserva = reservas.get(i);
 					String[] parts1 = reserva.split(" ");
+					email=parts1[3];
 					%>
 					<option value="<%=parts1[1]%>"><%=reserva%></option>
 				<%}%>

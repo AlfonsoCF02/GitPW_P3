@@ -55,6 +55,9 @@ a:hover{
 table {
   table-layout: auto;
   border-collapse: collapse;
+  width: auto;
+  height: auto;
+  position: absolute;
 }
 
 th{
@@ -195,6 +198,7 @@ footer {
 	text-align: center;
 	font-size: 1.5em;
 }
+
 #noRegistrado{
 	margin: 5em;
 	text-align: center;
@@ -206,6 +210,13 @@ footer {
 	text-align: center;
 	font-size: 1.5em;
 }
+
+#div_table_index{
+	margin: 5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
 
 .profile_image{
 	height:1.2em;

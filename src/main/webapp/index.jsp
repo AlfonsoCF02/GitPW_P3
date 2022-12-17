@@ -106,7 +106,7 @@
 		String nres="";
 		%>
 
-
+	<div id=div_table_index>
 		<table class="table_1">
 		  <tr>
 		    <th>Email</th>
@@ -125,6 +125,8 @@
 		  <%i++;} %>
 		</table>				
 	<%}%>
+	</div>
+
 	<footer>
 	<%if (customerBean == null || customerBean.getEmail()=="") {%>
 		<div class=footer_fisrt>
